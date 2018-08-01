@@ -23,4 +23,17 @@
     ;;falseに対応するのがないときはnilが返る。
     (is (= nil
            (if false
-             "By Zeu's hammer!")))))
+             "By Odin's Elbow!"))))
+  (testing "nil"
+    (is (= false
+           (nil? 1)))
+    (is (= true
+           (nil? nil)))
+    ;;nil, false 以外の値はtrueとなる
+    (is (= "bears beets Battlestar Galactica"
+           (if "bears eat beets"
+             "bears beets Battlestar Galactica")))
+    (is (= "nil is falsey"
+         (if nil
+            "This won't be the result because nil is falsey"
+            "nil is falsey"))))
