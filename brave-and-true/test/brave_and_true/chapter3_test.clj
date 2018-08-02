@@ -37,3 +37,10 @@
          (if nil
             "This won't be the result because nil is falsey"
             "nil is falsey"))))
+  (testing "equal"
+    (is (= true
+           (= 1 1)))
+    (is (= true
+           (= nil nil)))
+    (is (= false
+           (= 1 2)))))
