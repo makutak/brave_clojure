@@ -51,3 +51,8 @@
            (or (= 0 1) (= "yes" "no"))))
     (is (= nil
            (or nil))))
+  (testing "and"
+    (is (= :hot_coffee
+           (and :free_wifi :hot_coffee)))
+    (is (= nil
+           (and :feelin_super_cool nil false)))))
