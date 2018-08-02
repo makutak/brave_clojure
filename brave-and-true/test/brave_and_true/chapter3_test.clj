@@ -48,4 +48,6 @@
     (is (= :large_I_mean_venti
            (or false nil :large_I_mean_venti :why_cant_I_just_say_large)))
     (is (= false
-           (or (= 0 1) (= "yes" "no"))))))
+           (or (= 0 1) (= "yes" "no"))))
+    (is (= nil
+           (or nil))))
