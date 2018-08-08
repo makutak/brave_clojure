@@ -56,3 +56,10 @@
            (and :free_wifi :hot_coffee)))
     (is (= nil
            (and :feelin_super_cool nil false)))))
+
+(deftest naming-values-with-def
+  (testing "def"
+    (def failed-protagonist-names
+      ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"])
+    (is (= ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"]
+           failed-protagonist-names)))
