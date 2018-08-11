@@ -63,3 +63,9 @@
       ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"])
     (is (= ["Larry Potter" "Doreen the Explorer" "The Incredible Bulk"]
            failed-protagonist-names)))
+  (testing "error-message :mild"
+    (is (= "OH GOD! IT'S A DISASTER! WE'RE MILDLY INCONVENIENCED!"
+           (error-message :mild))))
+  (testing "error-message :hoge"
+    (is (= "OH GOD! IT'S A DISASTER! WE'RE DOOOOOOOMED!"
+           (error-message :hoge)))))
