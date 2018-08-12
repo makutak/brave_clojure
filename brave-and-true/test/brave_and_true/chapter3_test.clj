@@ -9,7 +9,6 @@
     (is (= (str "It was the panda " "in the library " "with a dust buster")
            "It was the panda in the library with a dust buster"))))
 
-
 (deftest control-flow
   (testing "if"
     (is (= "By Zeus's hammer!"
