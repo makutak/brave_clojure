@@ -68,3 +68,9 @@
   (testing "error-message :hoge"
     (is (= "OH GOD! IT'S A DISASTER! WE'RE DOOOOOOOMED!"
            (error-message :hoge)))))
+
+(deftest strings
+  (testing "str"
+    (def name "Chewbacca")
+    (is (= "\"Uggllglglglglglglglll\" - Chewbacca")
+        (str "\"Uggllglglglglglglglll\" - " name))))
