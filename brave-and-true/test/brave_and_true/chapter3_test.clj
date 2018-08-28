@@ -74,3 +74,33 @@
     (def name "Chewbacca")
     (is (= "\"Uggllglglglglglglglll\" - Chewbacca")
         (str "\"Uggllglglglglglglglll\" - " name))))
+
+(deftest maps
+  (testing "make-hash-map"
+    (is (hash-map :a 1 :b 1)
+        {:a 1 :b 1}))
+  (testing "get value in maps"
+
+    ;;(get map key) keyに対応したvalueが返る。
+    (is (= 1
+           (get {:a 0 :b 1} :b)))
+
+    ;;(get map key) ネストしたmapにも対応。
+    (is (= {:c "ho hum"}
+           (get {:a 0 :b {:c "ho hum"}} :b)))
+
+    ;;存在しないkeyを指定すると、nilが返る。
+    (is (= nil
+           (get {:a 0 :b 1} :c))) ;;
+
+    ;;(get map key not-found) keyが存在しないときに返す値を指定できる。
+    (is (= "unicorns?"
+           (get {:a 0 :b 1} :c "unicorns?")))
+
+    ;;get-in: ([m ks] [m ks not-found]) ネストしたmapから値を取るには、get-in を使う。
+    (is (= "ho hum"
+           (get-in {:a 0 :b {:c "ho hum"}} [:b :c])))
+
+    ;;get は省略できる。
+    (is (= "The Human Coffeepot"
+           ({:name "The Human Coffeepot"} :name)))))
