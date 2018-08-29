@@ -122,3 +122,23 @@
   (testing "add additional element"
     (is (= [1 2 3 4]
            (conj [1 2 3] 4)))))
+
+(deftest lists
+  ;;make lists by literal.
+  (testing "make lists by literal"
+    (is (= '(1 2 3 4)
+           '(1 2 3 4))))
+  ;;make lists by function.
+  (testing "make lists by function"
+    (is (= '(1 "two" {3 4})
+           (list 1 "two" {3 4}))))
+  ;;get Nth elements of a list.
+  (testing "get element by index"
+    (is (= :a
+           (nth '(:a :b :c) 0)))
+    (is (= :c
+           (nth '(:a :b :c) 2))))
+  ;;elements are added to the beginning of a list.
+  (testing "add elements to lists"
+    (is (= '(4 1 2 3)
+           (conj '(1 2 3) 4)))))
