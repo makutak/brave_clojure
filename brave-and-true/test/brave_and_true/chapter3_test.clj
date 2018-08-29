@@ -104,3 +104,21 @@
     ;;get は省略できる。
     (is (= "The Human Coffeepot"
            ({:name "The Human Coffeepot"} :name)))))
+
+(deftest vectors
+  ;;make vectors by literal.
+  (testing "make vectors by literal"
+    (is (= [3 2 1]
+           [3 2 1])))
+  ;;make vectors by vector function.
+  (testing "make vectors by function"
+    (is (= [3 2 1]
+           (vector 3 2 1))))
+  ;;get Nth elements of a vector.
+  (testing "get element by index"
+    (is (= 1
+           (get [3 2 1] 2))))
+  ;;conj is additional elements to vectors.
+  (testing "add additional element"
+    (is (= [1 2 3 4]
+           (conj [1 2 3] 4)))))
