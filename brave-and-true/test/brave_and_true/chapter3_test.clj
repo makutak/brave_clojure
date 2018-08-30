@@ -150,4 +150,31 @@
            #{"kurt vonnegut" 20 :icicle})))
   (testing "make sets by fucntion"
     (is (= #{1 2}
-           (hash-set 1 1 2 2)))))
+           (hash-set 1 1 2 2))))
+  (testing "set have only one of that value"
+    (is (= #{:a :b}
+           (conj #{:a :b} :a))))
+  (testing "make set from existing vectors"
+    (is (= #{3 4}
+           (set [3 3 3 4 4]))))
+  (testing "make set from existing lists"
+    (is (= #{:a :b}
+           (set '(:a :a :b :b :b)))))
+  (testing "check for set memmbership"
+    (is (= true
+           (contains? #{:a :b} :a)))
+    (is (= false
+           (contains? #{:a :b} 3)))
+    (is (= true
+           (contains? #{nil} nil)))
+    (is (= false
+           (contains? #{:a :b} nil))))
+  (testing "lookup the value"
+    (is (= :a
+           (get #{:a :b} :a)))
+    (is (= :a
+           (:a #{:a :b})))
+    (is (= nil
+           (get #{:a nil} nil)))
+    (is (= nil
+           (get #{:a :b} "kurt vonnegut")))))
