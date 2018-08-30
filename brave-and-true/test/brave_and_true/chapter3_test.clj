@@ -142,3 +142,12 @@
   (testing "add elements to lists"
     (is (= '(4 1 2 3)
            (conj '(1 2 3) 4)))))
+
+;;sets are collections of unique values.
+(deftest sets
+  (testing "make sets by literal"
+    (is (= #{"kurt vonnegut" 20 :icicle}
+           #{"kurt vonnegut" 20 :icicle})))
+  (testing "make sets by fucntion"
+    (is (= #{1 2}
+           (hash-set 1 1 2 2)))))
