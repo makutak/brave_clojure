@@ -178,3 +178,29 @@
            (get #{:a nil} nil)))
     (is (= nil
            (get #{:a :b} "kurt vonnegut")))))
+
+(deftest calling-function
+  (testing "calling function"
+    (is (= 10
+           (+ 1 2 3 4)))
+    (is (= 24
+           (* 1 2 3 4)))
+    (is (= 1
+           (first [1 2 3 4])))
+    ;;the return value of 'or' is the first truthy value.
+    (is (= 6
+           ((or + -) 1 2 3)))
+    ;;the return value of 'and' is the first falsey value or the last truthy value.
+    (is (= 6
+           ((and (= 1 1) +) 1 2 3)))
+    ;;the return value of first is the first element in a sequence.
+    (is (= 6
+           ((first [+ 0]) 1 2 3)))
+    (is (= 2.1
+           (inc 1.1)))
+    ;;map creates a new list by applying a function to each member of a collection.
+    ;;map doesn’t return a vector, even though we supplied a vector as an argumen.
+    (is (= '(1 2 3 4)
+           (map inc [0 1 2 3])))
+    (is (= 220
+           (+ (inc 199) (/ 100 (- 7 2)))))))
