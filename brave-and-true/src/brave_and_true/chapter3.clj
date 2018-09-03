@@ -12,7 +12,9 @@
          "DOOOOOOOMED!")))
 
 (defn too-enthusiastic ;;function name.
-  "Return a cheer that might be a bit too enthusiastic" ;;Docstring
+  "Return a cheer that might be a bit too enthusiastic"
+  ;;Docstring.
+  ;;In repl, clojure.repl/doc 'fun-name', then display docstring.
   [name] ;;paramater
   (str "OH. MY. GOD! " name " YOU ARE MOST DEFINITELY LIKE THE BEST "
        "MAN SLASH WOMAN EVER I LOVE YOU AND WE SHOULD RUN AWAY SOMEWHERE")) ;;function body
