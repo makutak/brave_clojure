@@ -204,3 +204,13 @@
            (map inc [0 1 2 3])))
     (is (= 220
            (+ (inc 199) (/ 100 (- 7 2)))))))
+
+
+(deftest too-enthusiastic-test
+  (testing "too-enthusiastic-test"
+    (is (= "OH. MY. GOD! Zelda YOU ARE MOST DEFINITELY LIKE THE BEST MAN SLASH WOMAN EVER I LOVE YOU AND WE SHOULD RUN AWAY SOMEWHERE"
+           (too-enthusiastic "Zelda")))
+    (is (= "OH. MY. GOD! hogehoge YOU ARE MOST DEFINITELY LIKE THE BEST MAN SLASH WOMAN EVER I LOVE YOU AND WE SHOULD RUN AWAY SOMEWHERE"
+           (too-enthusiastic "hogehoge")))
+    (is (= "OH. MY. GOD!  YOU ARE MOST DEFINITELY LIKE THE BEST MAN SLASH WOMAN EVER I LOVE YOU AND WE SHOULD RUN AWAY SOMEWHERE"
+           (too-enthusiastic "")))))
