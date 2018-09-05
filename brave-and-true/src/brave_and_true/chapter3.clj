@@ -26,3 +26,11 @@
    (str "I " chop-type " chop " name "! Take that!"))
   ([name]
    (x-chop name "karate")))
+
+(defn codger-communication
+  [whippersnapper]
+  (str "Get off my lawn, " whippersnapper "!!!"))
+
+(defn codger
+  [& whippersnappers]
+  (map codger-communication whippersnappers))

@@ -221,3 +221,12 @@
            (x-chop "Kanye West" "slap")))
     (is (= "I karate chop Kanye West! Take that!"
            (x-chop "Kanye West")))))
+
+(deftest rest-paramater-test
+  (testing "rest paramater"
+    (is (= '("Get off my lawn, Billy!!!"
+             "Get off my lawn, Anne-Marie!!!"
+             "Get off my lawn, The Incredible Bulk!!!")
+           (codger "Billy" "Anne-Marie" "The Incredible Bulk")))
+        (is (= '("Get off my lawn, Billy!!!")
+           (codger "Billy")))))
