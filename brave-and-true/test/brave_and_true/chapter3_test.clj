@@ -214,3 +214,10 @@
            (too-enthusiastic "hogehoge")))
     (is (= "OH. MY. GOD!  YOU ARE MOST DEFINITELY LIKE THE BEST MAN SLASH WOMAN EVER I LOVE YOU AND WE SHOULD RUN AWAY SOMEWHERE"
            (too-enthusiastic "")))))
+
+(deftest x-chop-test
+  (testing "x-chop-test"
+    (is (= "I slap chop Kanye West! Take that!"
+           (x-chop "Kanye West" "slap")))
+    (is (= "I karate chop Kanye West! Take that!"
+           (x-chop "Kanye West")))))

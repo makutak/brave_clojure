@@ -18,3 +18,11 @@
   [name] ;;paramater
   (str "OH. MY. GOD! " name " YOU ARE MOST DEFINITELY LIKE THE BEST "
        "MAN SLASH WOMAN EVER I LOVE YOU AND WE SHOULD RUN AWAY SOMEWHERE")) ;;function body
+
+
+(defn x-chop
+  "Describe the kind of chop you'are inflicting on someone."
+  ([name chop-type]
+   (str "I " chop-type " chop " name "! Take that!"))
+  ([name]
+   (x-chop name "karate")))
