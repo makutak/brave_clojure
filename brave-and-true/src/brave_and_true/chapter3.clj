@@ -67,3 +67,7 @@
                        (list
                         (str "Treasure lat: " lat)
                         (str "Treasure lng: " lng))))
+
+(defn receive-treasure-location
+  [{:keys [lat lng] :as treasure-location}]
+  (str treasure-location))
