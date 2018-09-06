@@ -258,4 +258,8 @@ We're ignoring the rest of your choices. Here they are in case you need to cry o
            (chooser '("Marmalade" "Handsome Jack" "Pigpen" "Aquaman"))))
     (is (= "Your first choise is: hoge
 Your second choise is: fuga"
-           (chooser ["hoge" "fuga"])))))
+           (chooser '("hoge" "fuga")))))
+
+  (testing "by map"
+    (is (= "Treasure lat: 28.22, Treasure lng: 81.33"
+           (announce-treasure-location {:lat 28.22 :lng 81.33})))))

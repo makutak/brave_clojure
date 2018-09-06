@@ -53,3 +53,9 @@
          (str "\n"
               "We're ignoring the rest of your choices. Here they are in case you need to cry over them: "
               (clojure.string/join ", " unimportant-choise)))))
+
+(defn annouce-treasure-location
+  [{lat :lat lng :lng}]
+  (clojure.string/join ", "
+                       (str "Treasure lat: " :lat)
+                       (str "Treasure lng: " :lng)))
