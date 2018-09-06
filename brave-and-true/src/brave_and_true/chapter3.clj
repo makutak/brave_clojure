@@ -54,8 +54,16 @@
               "We're ignoring the rest of your choices. Here they are in case you need to cry over them: "
               (clojure.string/join ", " unimportant-choise)))))
 
-(defn annouce-treasure-location
+(defn announce-treasure-location
   [{lat :lat lng :lng}]
   (clojure.string/join ", "
-                       (str "Treasure lat: " :lat)
-                       (str "Treasure lng: " :lng)))
+                       (list
+                        (str "Treasure lat: " lat)
+                        (str "Treasure lng: " lng))))
+
+(defn announce-treasure-location-2
+  [{:keys [lat lng]}]
+  (clojure.string/join ", "
+                       (list
+                        (str "Treasure lat: " lat)
+                        (str "Treasure lng: " lng))))
