@@ -229,4 +229,6 @@
              "Get off my lawn, The Incredible Bulk!!!")
            (codger "Billy" "Anne-Marie" "The Incredible Bulk")))
     (is (= '("Get off my lawn, Billy!!!")
-           (codger "Billy")))))
+           (codger "Billy")))
+    (is (= "Hi, Doreen, here are my favorite things: gum, shoes, kara-te"
+           (favorite-things "Doreen" "gum" "shoes" "kara-te")))))

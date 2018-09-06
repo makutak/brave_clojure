@@ -34,3 +34,8 @@
 (defn codger
   [& whippersnappers]
   (map codger-communication whippersnappers))
+
+(defn favorite-things
+  [name & things]
+  (str "Hi, " name ", here are my favorite things: "
+       (clojure.string/join ", " things)))
