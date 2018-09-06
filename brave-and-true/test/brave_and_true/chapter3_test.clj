@@ -242,4 +242,11 @@
     (is (= nil
            (my-first [])))
     (is (= nil
-           (my-first '())))))
+           (my-first '())))
+    (is (= "Your first choise is: Marmalade
+Your second choise is: Handsome Jack
+We're ignoring the rest of your choices. Here they are in case you need to cry over them: Pigpen, Aquaman"
+           (chooser ["Marmalade" "Handsome Jack" "Pigpen" "Aquaman"])))
+    (is (= "Your first choise is: hoge
+Your second choise is: fuga"
+           (chooser ["hoge" "fuga"])))))

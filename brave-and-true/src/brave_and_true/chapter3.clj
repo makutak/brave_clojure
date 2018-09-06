@@ -43,3 +43,13 @@
 (defn my-first
   [[first-things]]
   first-things)
+
+(defn chooser
+  [[first-choise second-choise & unimportant-choise]]
+  (str "Your first choise is: " first-choise "\n"
+       "Your second choise is: " second-choise
+       (if (nil? unimportant-choise)
+         ""
+         (str "\n"
+              "We're ignoring the rest of your choices. Here they are in case you need to cry over them: "
+              (clojure.string/join ", " unimportant-choise)))))
