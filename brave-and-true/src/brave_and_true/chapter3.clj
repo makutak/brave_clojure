@@ -39,3 +39,7 @@
   [name & things]
   (str "Hi, " name ", here are my favorite things: "
        (clojure.string/join ", " things)))
+
+(defn my-first
+  [[first-things]]
+  first-things)

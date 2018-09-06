@@ -232,3 +232,14 @@
            (codger "Billy")))
     (is (= "Hi, Doreen, here are my favorite things: gum, shoes, kara-te"
            (favorite-things "Doreen" "gum" "shoes" "kara-te")))))
+
+(deftest destructuring-test
+  (testing "destructuring"
+    (is (= "oven"
+           (my-first ["oven" "bike" "war-axe"])))
+    (is (= "hoge"
+           (my-first '("hoge" "fuga" "piyo"))))
+    (is (= nil
+           (my-first [])))
+    (is (= nil
+           (my-first '())))))
