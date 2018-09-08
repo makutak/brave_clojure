@@ -267,3 +267,8 @@ Your second choise is: fuga"
            (announce-treasure-location-2 {:lat 28.22 :lng 81.33})))
     (is (= "{:lat 28.22, :lng 81.33}"
            (receive-treasure-location {:lat 28.22 :lng 81.33})))))
+
+(deftest function-body-test
+  (testing "returns the last form evaluated"
+    (is (= "Joe"
+           (illustrative-function)))))

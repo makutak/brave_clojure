@@ -71,3 +71,9 @@
 (defn receive-treasure-location
   [{:keys [lat lng] :as treasure-location}]
   (str treasure-location))
+
+(defn illustrative-function
+  []
+  (+ 1 304)
+  30
+  "Joe")
