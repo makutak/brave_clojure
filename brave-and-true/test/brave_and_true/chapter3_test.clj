@@ -271,4 +271,9 @@ Your second choise is: fuga"
 (deftest function-body-test
   (testing "returns the last form evaluated"
     (is (= "Joe"
-           (illustrative-function)))))
+           (illustrative-function))))
+  (testing "use if expression"
+    (is (= "Oh my gosh! What a big number!"
+           (number-comment 7)))
+    (is (= "That's number's OK, I guess"
+           (number-comment 6)))))

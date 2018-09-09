@@ -77,3 +77,9 @@
   (+ 1 304)
   30
   "Joe")
+
+(defn number-comment
+  [x]
+  (if (> x 6)
+    "Oh my gosh! What a big number!"
+    "That's number's OK, I guess"))
