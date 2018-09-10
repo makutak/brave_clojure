@@ -277,3 +277,11 @@ Your second choise is: fuga"
            (number-comment 7)))
     (is (= "That's number's OK, I guess"
            (number-comment 6)))))
+
+(deftest anonymous-function-test
+  (testing "use fn form"
+    (is (= '("Hi, Darth Vader" "Hi, Mr.Mango")
+           (map (fn [name] (str "Hi, " name))
+                ["Darth Vader" "Mr.Mango"])))
+    (is (= 24
+           ((fn [x] (* x 3)) 8)))))
