@@ -284,4 +284,21 @@ Your second choise is: fuga"
            (map (fn [name] (str "Hi, " name))
                 ["Darth Vader" "Mr.Mango"])))
     (is (= 24
-           ((fn [x] (* x 3)) 8)))))
+           ((fn [x] (* x 3)) 8))))
+  (testing "use reader-macro"
+    (is (= 24
+           (#(* % 3) 8 )))
+    (is (= '("Hi, Darth Vader" "Hi, Mr.Mango")
+           (map #(str "Hi, " %)
+                ["Darth Vader" "Mr.Mango"]))))
+  (testing "fn and reader macro"
+    (is (= "cornbread and butter beans"
+           ((fn [name1 name2] (str name1 " and " name2))
+            "cornbread" "butter beans")))
+    (is (= "cornbread and butter beans"
+           (#(str %1  " and " %2)
+            "cornbread" "butter beans")))
+    (is (= '(1 "blarg" :yip)
+           ((fn [& rest] (identity rest)) 1 "blarg" :yip)))
+    (is (= '(1 "blarg" :yip)
+           (#(identity %&) 1 "blarg" :yip)))))
