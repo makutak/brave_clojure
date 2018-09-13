@@ -83,3 +83,7 @@
   (if (> x 6)
     "Oh my gosh! What a big number!"
     "That's number's OK, I guess"))
+
+(defn inc-maker
+  [inc-by]
+  (fn [num] (+ num inc-by)))
