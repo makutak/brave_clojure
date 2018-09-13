@@ -302,3 +302,8 @@ Your second choise is: fuga"
            ((fn [& rest] (identity rest)) 1 "blarg" :yip)))
     (is (= '(1 "blarg" :yip)
            (#(identity %&) 1 "blarg" :yip)))))
+
+(deftest returning-function-test
+  (testing "returning function"
+    (is (function?
+         (inc-maker 3)))))
