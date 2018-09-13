@@ -306,4 +306,8 @@ Your second choise is: fuga"
 (deftest returning-function-test
   (testing "returning function"
     (is (function?
-         (inc-maker 3)))))
+         (inc-maker 3))))
+  (testing "return 10"
+    (is (= 10
+           (let [inc3 (inc-maker 3)]
+             (inc3 7))))))
