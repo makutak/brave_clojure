@@ -311,3 +311,13 @@ Your second choise is: fuga"
     (is (= 10
            (let [inc3 (inc-maker 3)]
              (inc3 7))))))
+
+(deftest regular-expression-test
+  (testing "map's value :name left is replaced right"
+    (is (= {:name "right-eye" :size 1}
+           (matching-part {:name "left-eye" :size 1})))
+    (is (= {:name "right-shoulder" :size 3}
+           (matching-part {:name "right-shoulder" :size 3}))))
+  (testing "if left is none, return arguments"
+    (is (= {:name "head" :size 3}
+           (matching-part {:name "head" :size 3})))))
