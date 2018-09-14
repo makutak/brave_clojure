@@ -1,6 +1,6 @@
 (ns brave-and-true.chapter3 (:gen-class))
 
-(defn foo
+(defn title
   []
   (str "this is chapter-3"))
 
