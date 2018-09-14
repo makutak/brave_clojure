@@ -376,3 +376,14 @@ Your second choise is: fuga"
             {:name "right-foot", :size 2}
             {:name "left-foot", :size 2}]
            (symmetrize-body-parts asym-hobbit-body-parts)))))
+
+(def dalmatian-list ["Pongo" "Perdita" "Puppy 1" "Puppy 2"])
+
+(deftest let-test
+  (testing "let binds name to values"
+    (is (= 3
+           (let [x 3]
+             3)))
+    (is (= '("Pongo" "Perdita")
+           (let [dalmatians (take 2 dalmatian-list)]
+             dalmatians)))))
