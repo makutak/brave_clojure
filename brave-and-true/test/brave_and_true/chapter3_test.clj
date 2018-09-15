@@ -378,6 +378,7 @@ Your second choise is: fuga"
            (symmetrize-body-parts asym-hobbit-body-parts)))))
 
 (def dalmatian-list ["Pongo" "Perdita" "Puppy 1" "Puppy 2"])
+(def x 0)
 
 (deftest let-test
   (testing "let binds name to values"
@@ -386,4 +387,16 @@ Your second choise is: fuga"
              3)))
     (is (= '("Pongo" "Perdita")
            (let [dalmatians (take 2 dalmatian-list)]
-             dalmatians)))))
+             dalmatians)))
+    (is (= 0
+           x))
+    (is (= 1
+           (let [x 1]
+             x)))
+    (is (= 1
+           (let [x (inc x)]
+             x)))
+    (is (not (= 1
+                x)))
+    (is (= 0
+           x))))
