@@ -410,4 +410,7 @@ Your second choise is: fuga"
            (loop [i 0]
              (if (>= i 5)
                (str "i: " i)
-               (recur (inc i))))))))
+               (recur (inc i)))))))
+  (testing "recur is like recursive"
+    (is (= "Good Bye!!: 4"
+           (recursive-printer)))))

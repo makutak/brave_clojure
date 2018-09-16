@@ -104,3 +104,12 @@
           (recur remaining
                  (into final-body-parts
                        (set [part (matching-part part)])))))))
+
+
+(defn recursive-printer
+  ([]
+   (recursive-printer 0))
+  ([iteration]
+   (if (> iteration 3)
+     (str "Good Bye!!: " iteration)
+     (recursive-printer (inc iteration)))))
