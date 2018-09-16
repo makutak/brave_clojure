@@ -414,3 +414,14 @@ Your second choise is: fuga"
   (testing "recur is like recursive"
     (is (= "Good Bye!!: 4"
            (recursive-printer)))))
+
+(deftest regular-expression-test
+  (testing "matching left the beginning of the string"
+    (is (= "left-"
+           (re-find #"^left-" "left-eyes")))
+    (is (= nil
+           (re-find #"^left-" "cleft-chin")))
+    (is (= nil
+           (re-find #"^left-" "wongleblart")))
+    (is (= nil
+           (re-find #"^left-" "eyes-left-eyes")))))
