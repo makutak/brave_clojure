@@ -399,4 +399,7 @@ Your second choise is: fuga"
     (is (not (= 1
                 x)))
     (is (= 0
-           x))))
+           x))
+    (is (= ["Pongo" '("Perdita" "Puppy 1" "Puppy 2")]
+           (let [[pongo & dalmatians] dalmatian-list]
+             [pongo dalmatians])))))
