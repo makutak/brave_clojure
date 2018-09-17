@@ -105,7 +105,6 @@
                  (into final-body-parts
                        (set [part (matching-part part)])))))))
 
-
 (defn recursive-printer
   ([]
    (recursive-printer 0))
