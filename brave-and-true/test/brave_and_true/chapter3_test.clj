@@ -437,3 +437,14 @@ Your second choise is: fuga"
            (reduce + 15 [1 2 3 4])))
     (is (= 30
            (reduce + 15 '(1 2 3 4 5))))))
+
+(deftest my-reduce-test
+  (testing "same as 'reduce'"
+    (is (= 10
+           (my-reduce + [1 2 3 4])))
+    (is (= 15
+           (my-reduce + '(1 2 3 4 5))))
+    (is (= 25
+           (my-reduce + 15 [1 2 3 4])))
+    (is (= 30
+           (my-reduce + 15 '(1 2 3 4 5))))))
