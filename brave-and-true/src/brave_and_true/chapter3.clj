@@ -124,6 +124,10 @@
   ([f [head & tail]]
    (my-reduce f head tail)))
 
+;;reduce の メリット
+;; 1. loop に比べてコードが短くなる
+;; 2. collection の要素に対して処理し結果を返すという目的が明確になる
+;; 3. 関数をより抽象化できる
 (defn better-symmetrize-body-parts
   [asym-body-parts]
   (reduce (fn [final-body-parts part]
