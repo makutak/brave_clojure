@@ -450,3 +450,8 @@ Your second choise is: fuga"
            (my-reduce + 15 [1 2 3 4])))
     (is (= 30
            (my-reduce + 15 '(1 2 3 4 5))))))
+
+(deftest better-symmetrize-body-parts-test
+  (testing "same result as symmetrize-body-parts"
+    (is (= expected
+           (better-symmetrize-body-parts asym-hobbit-body-parts)))))
