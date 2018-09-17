@@ -425,3 +425,15 @@ Your second choise is: fuga"
            (re-find #"^left-" "wongleblart")))
     (is (= nil
            (re-find #"^left-" "eyes-left-eyes")))))
+
+(deftest reduce-test
+  (testing "return sum of sequence"
+    (is (= 10
+           (reduce + [1 2 3 4]))) ;;-> (+ (+ (+ 1 2) 3) 4)
+    (is (= 15
+           (reduce + '(1 2 3 4 5)))))
+  (testing "return initial value added sum of sequence"
+    (is (= 25
+           (reduce + 15 [1 2 3 4])))
+    (is (= 30
+           (reduce + 15 '(1 2 3 4 5))))))
