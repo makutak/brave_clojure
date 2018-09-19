@@ -157,3 +157,8 @@
 (defn dec-maker
   [n]
   #(- % n))
+
+;;question 4
+(defn mapset
+  [f coll]
+  (set (map f coll)))

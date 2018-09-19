@@ -473,3 +473,12 @@ Your second choise is: fuga"
     (is (= 1
            (let [dec9 (dec-maker 9)]
              (dec9 10))))))
+
+(deftest mapset-test
+  (testing "applying a function to each member of a collection and set"
+    (is (= #{2 3}
+           (mapset inc [1 1 2 2])))
+    (is (= #{1}
+           (mapset inc '(0 0 0 0 0 ))))
+    (is (= #{1991 1992 1993 1994}
+           (mapset (fn [a] a) '(1991 1992 1992 1992 1992 1993 1994))))))
