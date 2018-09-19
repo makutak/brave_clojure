@@ -145,3 +145,10 @@
       (if (> accumulated-size target)
         part
         (recur remaining (+ accumulated-size (:size (first remaining))))))))
+
+;; exercise
+
+;; question 2
+(defn add-100
+  [n]
+  (+ n 100))

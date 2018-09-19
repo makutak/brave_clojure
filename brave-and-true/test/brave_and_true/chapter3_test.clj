@@ -455,3 +455,12 @@ Your second choise is: fuga"
   (testing "same result as symmetrize-body-parts"
     (is (= expected
            (better-symmetrize-body-parts asym-hobbit-body-parts)))))
+
+(deftest add-100-test
+  (testing "given number added 100"
+    (is (= 101
+           (add-100 1)))
+    (is (= 100
+           (add-100 0)))
+    (is (= 0
+           (add-100 -100)))))
