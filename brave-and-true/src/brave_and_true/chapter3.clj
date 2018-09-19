@@ -152,3 +152,8 @@
 (defn add-100
   [n]
   (+ n 100))
+
+;; question 3
+(defn dec-maker
+  [n]
+  #(- % n))

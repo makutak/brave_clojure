@@ -464,3 +464,12 @@ Your second choise is: fuga"
            (add-100 0)))
     (is (= 0
            (add-100 -100)))))
+
+(deftest dec-maker-test
+  (testing "return function"
+    (is (function?
+         (dec-maker 10))))
+  (testing "substarction"
+    (is (= 1
+           (let [dec9 (dec-maker 9)]
+             (dec9 10))))))
