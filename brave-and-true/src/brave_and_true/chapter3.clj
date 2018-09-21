@@ -162,3 +162,11 @@
 (defn mapset
   [f coll]
   (set (map f coll)))
+
+;; question 5
+;; Create a function that’s similar to symmetrize-body-parts except that it has to work
+;; with weird space aliens with radial symmetry. Instead of two eyes, arms, legs, and so on, they have five.
+
+;; 1-eye, 2-ear, 3-hand のような、
+;; '数字-パーツ'という形式のnameが来たら、
+;; それを'5-parts'まで作る。
