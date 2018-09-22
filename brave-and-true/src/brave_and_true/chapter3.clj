@@ -170,9 +170,8 @@
 ;; 1-eye, 2-ear, 3-hand のような、
 ;; '数字-パーツ'という形式のnameが来たら、
 ;; それを'5-parts'まで作る。
-
 (defn build-alian-part
   [part]
-  (map #(str % "-" part)
-       (range 1 6))
- (clojure.string/replace part #"^1-" ""))
+  (if (clojure.string/starts-with? part "1-")
+    (map #(str % "-" part) (range 1 6))
+    part))
