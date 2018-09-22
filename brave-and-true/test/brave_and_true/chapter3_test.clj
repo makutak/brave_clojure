@@ -482,3 +482,15 @@ Your second choise is: fuga"
            (mapset inc '(0 0 0 0 0 ))))
     (is (= #{1991 1992 1993 1994}
            (mapset (fn [a] a) '(1991 1992 1992 1992 1992 1993 1994))))))
+
+(deftest build-alian-part-test
+  (testing "build alian body parts"
+    (is (= [{:name "1-eye", :size 1}
+            {:name "2-eye", :size 1}
+            {:name "3-eye", :size 1}
+            {:name "4-eye", :size 1}
+            {:name "5-eye", :size 1}]
+           (build-alian-part {:name "1-eye" :size 1}))))
+  (testing "build normal body part"
+    (is (= [{:name "head" :size 10}]
+           (build-alian-part {:name "head" :size 10})))))

@@ -172,6 +172,11 @@
 ;; それを'5-parts'まで作る。
 (defn build-alian-part
   [part]
-  (if (clojure.string/starts-with? part "1-")
-    (map #(str % "-" part) (range 1 6))
-    part))
+  (if (clojure.string/starts-with? (:name part) "1-")
+    (into []
+          (map #(hash-map :name (str %
+                                     "-"
+                                     (clojure.string/replace (:name part) "1-" ""))
+                          :size (:size part))
+               (range 1 6)))
+    [part]))
