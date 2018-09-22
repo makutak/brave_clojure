@@ -170,7 +170,7 @@
 ;; 1-eye, 2-ear, 3-hand のような、
 ;; '数字-パーツ'という形式のnameが来たら、
 ;; それを'5-parts'まで作る。
-(defn build-alian-part
+(defn build-alien-part
   [part]
   (if (clojure.string/starts-with? (:name part) "1-")
     (into []
@@ -181,9 +181,9 @@
                (range 1 6)))
     [part]))
 
-(defn symmetrize-aliang-body-parts
+(defn symmetrize-alien-body-parts
   [asym-body-parts]
   (reduce (fn [final-body-parts part]
-            (into final-body-parts (set (flatten [part (build-alian-part part)]))))
+            (into final-body-parts (set (flatten [part (build-alien-part part)]))))
           []
           asym-body-parts))

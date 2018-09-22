@@ -533,7 +533,7 @@ Your second choise is: fuga"
                           {:name "4-foot", :size 2}
                           {:name "5-foot", :size 2}])
 
-(deftest symmetrize-aliang-body-parts-test
+(deftest symmetrize-alien-body-parts-test
   (testing "return alian body"
     (is (= (set expected-alian-body)
-           (set (symmetrize-aliang-body-parts asym-alian-body-parts))))))
+           (set (symmetrize-alien-body-parts asym-alian-body-parts))))))
