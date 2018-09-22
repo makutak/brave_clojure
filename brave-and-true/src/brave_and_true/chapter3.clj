@@ -180,3 +180,10 @@
                           :size (:size part))
                (range 1 6)))
     [part]))
+
+(defn symmetrize-aliang-body-parts
+  [asym-body-parts]
+  (reduce (fn [final-body-parts part]
+            (into final-body-parts (set (flatten [part (build-alian-part part)]))))
+          []
+          asym-body-parts))

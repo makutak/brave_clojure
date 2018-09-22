@@ -494,3 +494,46 @@ Your second choise is: fuga"
   (testing "build normal body part"
     (is (= [{:name "head" :size 10}]
            (build-alian-part {:name "head" :size 10})))))
+
+(def asym-alian-body-parts [{:name	"head" :size 3}
+                             {:name	"1-eye" :size 1}
+                             {:name	"1-ear" :size 1}
+                             {:name	"mouth" :size 1}
+                             {:name	"nose" :size 1}
+                             {:name	"neck" :size 2}
+                             {:name	"1-arm" :size 3}
+                             {:name	"chest" :size 10}
+                             {:name	"back" :size 10}
+                             {:name	"1-foot" :size 2}])
+
+(def expected-alian-body [{:name "head", :size 3}
+                          {:name "1-eye", :size 1}
+                          {:name "2-eye", :size 1}
+                          {:name "3-eye", :size 1}
+                          {:name "4-eye", :size 1}
+                          {:name "5-eye", :size 1}
+                          {:name "1-ear", :size 1}
+                          {:name "2-ear", :size 1}
+                          {:name "3-ear", :size 1}
+                          {:name "4-ear", :size 1}
+                          {:name "5-ear", :size 1}
+                          {:name "mouth", :size 1}
+                          {:name "nose", :size 1}
+                          {:name "neck", :size 2}
+                          {:name "1-arm", :size 3}
+                          {:name "2-arm", :size 3}
+                          {:name "3-arm", :size 3}
+                          {:name "4-arm", :size 3}
+                          {:name "5-arm", :size 3}
+                          {:name "chest", :size 10}
+                          {:name "back", :size 10}
+                          {:name "1-foot", :size 2}
+                          {:name "2-foot", :size 2}
+                          {:name "3-foot", :size 2}
+                          {:name "4-foot", :size 2}
+                          {:name "5-foot", :size 2}])
+
+(deftest symmetrize-aliang-body-parts-test
+  (testing "return alian body"
+    (is (= (set expected-alian-body)
+           (set (symmetrize-aliang-body-parts asym-alian-body-parts))))))
