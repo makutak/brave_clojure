@@ -3,3 +3,7 @@
 (defn title
   []
   (str "This is Chapter-4!!"))
+
+(defn titlelize
+  [topic]
+  (str topic " for the Brave and True"))
