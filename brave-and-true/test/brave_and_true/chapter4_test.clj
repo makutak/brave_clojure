@@ -8,4 +8,7 @@
     (is (= "Clojure for the Brave and True"
            (titlelize "Clojure")))
     (is (= " for the Brave and True"
-           (titlelize "")))))
+           (titlelize ""))))
+  (testing "map returns list"
+    (is (= '("Hamsters for the Brave and True" "Ragnarok for the Brave and True")
+           (map titlelize ["Hamsters" "Ragnarok"])))))
