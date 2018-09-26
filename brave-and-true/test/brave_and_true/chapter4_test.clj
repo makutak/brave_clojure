@@ -13,4 +13,6 @@
     (is (= '("Hamsters for the Brave and True" "Ragnarok for the Brave and True")
            (map titlelize ["Hamsters" "Ragnarok"])))
     (is (= '("Empty for the Brave and True" "Decorating for the Brave and True")
-           (map titlelize '("Empty" "Decorating"))))))
+           (map titlelize '("Empty" "Decorating"))))
+    (is (= '("Elbows for the Brave and True" "Soap Carving for the Brave and True")
+           (map titlelize #{"Elbows" "Soap Carving"})))))
