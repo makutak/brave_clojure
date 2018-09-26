@@ -11,4 +11,6 @@
            (titlelize ""))))
   (testing "map returns list"
     (is (= '("Hamsters for the Brave and True" "Ragnarok for the Brave and True")
-           (map titlelize ["Hamsters" "Ragnarok"])))))
+           (map titlelize ["Hamsters" "Ragnarok"])))
+    (is (= '("Empty for the Brave and True" "Decorating for the Brave and True")
+           (map titlelize '("Empty" "Decorating"))))))
