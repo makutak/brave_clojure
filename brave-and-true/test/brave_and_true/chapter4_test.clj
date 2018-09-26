@@ -15,4 +15,6 @@
     (is (= '("Empty for the Brave and True" "Decorating for the Brave and True")
            (map titlelize '("Empty" "Decorating"))))
     (is (= '("Elbows for the Brave and True" "Soap Carving for the Brave and True")
-           (map titlelize #{"Elbows" "Soap Carving"})))))
+           (map titlelize #{"Elbows" "Soap Carving"})))
+    (is (= '("Winking for the Brave and True")
+           (map #(titlelize (second %)) {:uncomfortable-thing "Winking"})))))
