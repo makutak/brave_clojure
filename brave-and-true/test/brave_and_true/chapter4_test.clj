@@ -18,3 +18,17 @@
            (map titlelize #{"Elbows" "Soap Carving"})))
     (is (= '("Winking for the Brave and True")
            (map #(titlelize (second %)) {:uncomfortable-thing "Winking"})))))
+
+(deftest seq-test
+  (testing "seq abstracts list into sequence"
+    (is (= true
+           (seq? (seq '(1 2 3))))))
+  (testing "seq abstracts vector into sequence"
+    (is (= true
+           (seq? (seq [1 2 3])))))
+  (testing "seq abstracts set into sequence"
+    (is (= true
+           (seq? (seq #{1 2 3})))))
+  (testing "seq abstracts hash-map into sequence"
+    (is (= true
+           (seq? (seq {:name "Bill Compton" :occupation "Dead mopey guy"}))))))
