@@ -31,4 +31,7 @@
            (seq? (seq #{1 2 3})))))
   (testing "seq abstracts hash-map into sequence"
     (is (= true
-           (seq? (seq {:name "Bill Compton" :occupation "Dead mopey guy"}))))))
+           (seq? (seq {:name "Bill Compton" :occupation "Dead mopey guy"})))))
+  (testing "the seq back into a map by using into"
+    (is (= true
+           (map? (into {} (seq {:a 1 :b 2 :c 3})))))))
