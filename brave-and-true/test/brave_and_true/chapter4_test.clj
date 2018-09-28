@@ -37,6 +37,7 @@
            (map? (into {} (seq {:a 1 :b 2 :c 3})))))))
 
 (deftest map-test
-  (testing "map receive one collection"
+  (testing "map can receive one collection"
     (is (= '(2 3 4)
-           (map inc [1 2 3])))))
+           (map inc [1 2 3]))))
+  (testing "map can"))
