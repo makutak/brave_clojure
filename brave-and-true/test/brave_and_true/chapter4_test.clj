@@ -40,4 +40,6 @@
   (testing "map can receive one collection"
     (is (= '(2 3 4)
            (map inc [1 2 3]))))
-  (testing "map can"))
+  (testing "map can receive multiple collection"
+    (is (= '("aA" "bB" "cC")
+           (map str ["a" "b" "c"] ["A" "B" "C"])))))
