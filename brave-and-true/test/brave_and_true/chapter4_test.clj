@@ -43,3 +43,12 @@
   (testing "map can receive multiple collection"
     (is (= '("aA" "bB" "cC")
            (map str ["a" "b" "c"] ["A" "B" "C"])))))
+
+(def human-consumption-data   [8.1 7.3 6.6 5.0])
+(def critter-consumption [0.0 0.2 0.3 1.1])
+(def expected (map (fn [h c] {:human h :critter c}) human-consumption-data critter-consumption))
+
+(deftest unify-diet-data-test
+  (testing "two data into a single map"
+    (is (= expected
+           (map unify-diet-data human-consumption-data critter-consumption)))))

@@ -7,3 +7,8 @@
 (defn titlelize
   [topic]
   (str topic " for the Brave and True"))
+
+(defn unify-diet-data
+  [human critter]
+  {:human human
+   :critter critter})
