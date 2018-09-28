@@ -52,3 +52,11 @@
   (testing "two data into a single map"
     (is (= expected
            (map unify-diet-data human-consumption-data critter-consumption)))))
+
+
+(deftest stats-test
+  (testing "return a set of calculations on different collections of numbers"
+    (is (= '(17 3 17/3)
+           (stats [3 4 10])))
+    (is (= '(144 5 144/5)
+           (stats [80 1 44 13  6])))))

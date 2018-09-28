@@ -12,3 +12,16 @@
   [human critter]
   {:human human
    :critter critter})
+
+(defn sum
+  [numbers]
+  (reduce + numbers))
+
+(defn avg
+  [numbers]
+  (/ (sum numbers)
+     (count numbers)))
+
+(defn stats
+  [numbers]
+  (map #(% numbers) [sum count avg]))
