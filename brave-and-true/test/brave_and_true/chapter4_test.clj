@@ -35,3 +35,8 @@
   (testing "the seq back into a map by using into"
     (is (= true
            (map? (into {} (seq {:a 1 :b 2 :c 3})))))))
+
+(deftest map-test
+  (testing "map receive one collection"
+    (is (= '(2 3 4)
+           (map inc [1 2 3])))))
