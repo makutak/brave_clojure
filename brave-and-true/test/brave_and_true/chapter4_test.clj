@@ -72,6 +72,10 @@
     (is (= '("Bruce Wayne" "Peter Parker" "Your mom" "Your dad")
            (map :real identities)))))
 
+(deftest assoc-test
+  (testing "assoc build map"
+    (is (= {:max 30}
+           (assoc {} :max 30)))))
 
 (deftest reduce-test-1
   (testing "maps'value update"
