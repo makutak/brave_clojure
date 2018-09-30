@@ -71,3 +71,12 @@
   (testing "map get value from a collection of map data structures"
     (is (= '("Bruce Wayne" "Peter Parker" "Your mom" "Your dad")
            (map :real identities)))))
+
+
+(deftest reduce-test-1
+  (testing "maps'value update"
+    (is (= {:max 31 :min 11}
+           (reduce (fn [new-map [key val]]
+                     (assoc new-map key (inc val)))
+                   {}
+                   {:max 30 :min 10})))))
