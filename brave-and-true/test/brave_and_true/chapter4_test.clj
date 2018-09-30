@@ -89,4 +89,19 @@
            (reduce (fn [new-map [key val]]
                      (assoc new-map key (inc val)))
                    {}
-                   {:max 30 :min 10})))))
+                   {:max 30 :min 10}))))
+  (testing "filter map"
+    (is (= {:human 4.1}
+           (reduce (fn [new-map [key val]]
+                     (if (> val 4)
+                       (assoc new-map key val)
+                       new-map))
+                   {}
+                   {:human 4.1 :critter 3.9})))
+    (is (= {:critter 3.9}
+           (reduce (fn [new-map [key val]]
+                     (if (< val 4)
+                         (assoc new-map key val)
+                         new-map))
+                   {}
+                   {:human 4.1 :critter 3.9}))))
