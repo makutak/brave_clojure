@@ -75,7 +75,14 @@
 (deftest assoc-test
   (testing "assoc build map"
     (is (= {:max 30}
-           (assoc {} :max 30)))))
+           (assoc {} :max 30))))
+  (testing "assoc update map"
+    (is (= {:max 30 :min 10}
+           (assoc
+            (assoc {} :max 30)
+            :min
+            10)))))
+
 
 (deftest reduce-test-1
   (testing "maps'value update"
