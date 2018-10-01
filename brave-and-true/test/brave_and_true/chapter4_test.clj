@@ -135,3 +135,14 @@
   (testing "return month less than 3 data"
     (is (= less-than-3-month
            (take-while #(< (:month %) 3) food-journal)))))
+
+
+(def more-than-3-month '({:month 3, :day 1, :human 4.2, :critter 3.3}
+                        {:month 3, :day 2, :human 4.0, :critter 3.8}
+                        {:month 4, :day 1, :human 3.7, :critter 3.9}
+                        {:month 4, :day 2, :human 3.7, :critter 3.6}))
+
+(deftest drop-while-test
+  (testing "return month more than 3 data"
+    (is (= more-than-3-month
+           (drop-while #(< (:month %) 3) food-journal)))))
