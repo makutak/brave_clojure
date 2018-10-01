@@ -105,3 +105,8 @@
                          new-map))
                    {}
                    {:human 4.1 :critter 3.9}))))
+
+(deftest take-test
+  (testing "take return the first n elements of the sequence"
+    (is (= '(1 2 3)
+           (take 3 (range 1 11))))))
