@@ -83,7 +83,7 @@
             :min
             10)))))
 
-(deftest reduce-test-1
+(deftest reduce-test
   (testing "maps'value update"
     (is (= {:max 31 :min 11}
            (reduce (fn [new-map [key val]]
