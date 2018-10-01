@@ -110,3 +110,8 @@
   (testing "take return the first n elements of the sequence"
     (is (= '(1 2 3)
            (take 3 (range 1 11))))))
+
+(deftest drop-test
+  (testing "drop returns the sequence with the first n element removed"
+    (is (= '(4 5 6 7 8 9 10)
+           (drop 3 (range 1 11))))))
