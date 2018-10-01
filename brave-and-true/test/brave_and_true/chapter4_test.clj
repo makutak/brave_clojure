@@ -104,7 +104,7 @@
                          (assoc new-map key val)
                          new-map))
                    {}
-                   {:human 4.1 :critter 3.9}))))
+                   {:human 4.1 :critter 3.9})))))
 
 (deftest take-test
   (testing "take return the first n elements of the sequence"
