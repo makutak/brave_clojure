@@ -193,3 +193,8 @@
     (is (= {:month 3, :day 1, :human 4.2, :critter 3.3}
            ;; 'and' returns the value of the last expr
            (some #(and (> (:critter %) 3) %) food-journal)))))
+
+(deftest sort-test
+  (testing "sort returns ascending order seq"
+    (is (= '(1 2 3)
+           (sort [3 2 1]))))
