@@ -185,4 +185,7 @@
 (deftest some-test
   (testing "return true if it exists"
     (is (= true
-           (some #(> (:critter %) 3) food-journal)))))
+           (some #(> (:critter %) 3) food-journal))))
+  (testing "return nil if it not exist"
+    (is (= nil
+           (some #(> (:critter %) 5) food-journal)))))
