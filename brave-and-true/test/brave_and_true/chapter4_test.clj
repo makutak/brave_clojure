@@ -157,3 +157,14 @@
     (is (= feburary-and-march
            (take-while #(< (:month %) 4)
                        (drop-while #(< (:month %) 2) food-journal))))))
+
+(def more-than-5-human '({:month 2, :day 1, :human 4.9, :critter 2.1}
+                         {:month 3, :day 1, :human 4.2, :critter 3.3}
+                         {:month 3, :day 2, :human 4.0, :critter 3.8}
+                         {:month 4, :day 1, :human 3.7, :critter 3.9}
+                         {:month 4, :day 2, :human 3.7, :critter 3.6}))
+
+(deftest filter-test
+  (testing "return more than human 5 data"
+    (is (= more-than-5-human
+           (filter #(< (:human %) 5) food-journal)))))
