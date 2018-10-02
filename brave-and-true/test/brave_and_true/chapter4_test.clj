@@ -176,3 +176,8 @@
   (testing "return january and feburary"
     (is (= january-and-feburary
            (filter #(< (:month %) 3) food-journal)))))
+
+;; filterは引数をすべて評価するが、take-while、drop-whileはそうではない。
+;; take-whileは与えられた関数が成り立つまでのリストを返し、
+;; drop-whileは与えられた関数が成り立つまでを切り捨てて、残りのリストを返す。
+;; なので、ソート済みのseqに対しては、take-while, drop-whileが有用。
