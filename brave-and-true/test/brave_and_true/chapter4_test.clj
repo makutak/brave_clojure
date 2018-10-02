@@ -198,3 +198,7 @@
   (testing "sort returns ascending order seq"
     (is (= '(1 2 3)
            (sort [3 2 1]))))
+  ;; key-functionの結果により、sort-byはソート順を決める
+  (testing "sort-by returns string length ascending order seq"
+    (is (= '("c" "bb" "aaa")
+           (sort-by count ["aaa" "bb" "c"])))))
