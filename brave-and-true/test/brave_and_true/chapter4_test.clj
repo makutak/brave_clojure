@@ -188,4 +188,8 @@
            (some #(> (:critter %) 3) food-journal))))
   (testing "return nil if it not exist"
     (is (= nil
-           (some #(> (:critter %) 5) food-journal)))))
+           (some #(> (:critter %) 5) food-journal))))
+  (testing "return first true value use and function"
+    (is (= {:month 3, :day 1, :human 4.2, :critter 3.3}
+           ;; 'and' returns the value of the last expr
+           (some #(and (> (:critter %) 3) %) food-journal)))))
