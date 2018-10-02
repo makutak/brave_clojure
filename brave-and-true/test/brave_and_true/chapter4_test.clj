@@ -183,6 +183,6 @@
 ;; なので、ソート済みのseqに対しては、take-while, drop-whileが有用。
 
 (deftest some-test
-  (testing "if true if it exists"
+  (testing "return true if it exists"
     (is (= true
            (some #(> (:critter %) 3) food-journal)))))
