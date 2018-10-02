@@ -201,4 +201,7 @@
   ;; key-functionの結果により、sort-byはソート順を決める
   (testing "sort-by returns string length ascending order seq"
     (is (= '("c" "bb" "aaa")
-           (sort-by count ["aaa" "bb" "c"])))))
+           (sort-by count ["aaa" "bb" "c"]))))
+  (testing "sort returns alphabetical order seq"
+    (is (= '("aaa" "bb" "c")
+           (sort '("c" "bb" "aaa"))))))
