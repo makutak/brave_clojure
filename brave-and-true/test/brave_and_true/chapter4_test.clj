@@ -205,3 +205,12 @@
   (testing "sort returns alphabetical order seq"
     (is (= '("aaa" "bb" "c")
            (sort '("c" "bb" "aaa"))))))
+
+(deftest concat-test
+  (testing "concat returns the concatenation of the elements in the supplied colls"
+    (is (= '(1 2 3 4)
+           (concat [1 2] [3 4])))
+    (is (= '(1 2 3 4 5 6)
+           (concat [1 2] [3 4] '(5 6))))
+    (is (= '(1)
+           (concat [1])))))
