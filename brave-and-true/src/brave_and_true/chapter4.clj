@@ -34,7 +34,7 @@
 
 (defn vampire-related-details
   [social-security-number]
-  (Thread/sleep 1000)
+  ;;(Thread/sleep 1000)
   (get vampire-database social-security-number))
 
 (defn vampire?
