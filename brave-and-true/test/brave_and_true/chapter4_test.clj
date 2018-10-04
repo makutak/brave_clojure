@@ -219,3 +219,9 @@
   (testing "the culprit is Damon"
     (is (= "Damon Salvatore"
            (:name (identify-vampire (range 0 5)))))))
+
+(deftest repeat-test
+  (testing "repeat creates sequence whose every member is the argument"
+    (is (= '("foo" "foo" "foo" "foo" "foo")
+           ;;repeat は無限に続くので、使うときは先頭からのいくつかの要素を取得しないといけない
+           (take 5 (repeat "foo"))))))
