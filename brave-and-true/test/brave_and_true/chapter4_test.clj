@@ -228,4 +228,9 @@
     (is (= '("na" "na" "na" "na" "na" "na" "na" "na" "Batman!")
            (concat
             (take 8 (repeat "na"))
-            '("Batman!"))))))
+            '("Batman!")))))
+  (testing "repeatedly call the provided function to generate each element in the sequence"
+    (is (seq?
+         ;;ランダムで生成した10までの数字を持つ長さ3のseqを作る
+         ;;repeatは、rand-intを初回だけ実行するので、同じ数字が並んだseqが返る。
+         (take 3 (repeatedly (fn [] (rand-int 10))))))))
