@@ -271,4 +271,7 @@
          (into #{} (map identity [:garlic-clove :garlic-clove])))))
   (testing "into add elements to a map"
     (is (= {:favorite-emotion "gloomy" :sunlight-reaction "Glitter!"}
-           (into {:favorite-emotion "gloomy"} [[:sunlight-reaction "Glitter!"]])))))
+           (into {:favorite-emotion "gloomy"} [[:sunlight-reaction "Glitter!"]]))))
+  (testing "into add elements to a vector"
+    (is (= ["cherry" "pine" "spruce"]
+           (into ["cherry"] '("pine" "spruce"))))))
