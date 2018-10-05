@@ -256,9 +256,9 @@
   (testing "into returns not seq."
     (is (= {:sunlight-reaction "Glitter!"}
            (into {} (map identity {:sunlight-reaction "Glitter!"})))))
-  (testing "map returns seq"
+  (testing "map returns lists"
     (is (not (vector?
-              (map identity '(:sunlight-reaction "Glitter!"))))))
+              (map identity [:garlic :sesame-oil :fried-eggs])))))
   (testing "into back to oridinal data structures."
     (is (vector?
-         (into [] (map identity '(:sunlight-reaction "Glitter!")))))))
+         (into [] (map identity [:garlic :sesame-oil :fried-eggs]))))))
