@@ -257,8 +257,8 @@
     (is (= {:sunlight-reaction "Glitter!"}
            (into {} (map identity {:sunlight-reaction "Glitter!"})))))
   (testing "map returns seq"
-    (is (= '(:sunlight-reaction "Glitter!")
-           (map identity '(:sunlight-reaction "Glitter!")))))
+    (is (not (vector?
+              (map identity '(:sunlight-reaction "Glitter!"))))))
   (testing "into back to oridinal data structures."
-    (is (= [:sunlight-reaction "Glitter!"]
-           (into [] (map identity '(:sunlight-reaction "Glitter!")))))))
+    (is (vector?
+         (into [] (map identity '(:sunlight-reaction "Glitter!")))))))
