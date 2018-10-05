@@ -47,3 +47,8 @@
   [social-security-numbers]
   (first (filter vampire?
                  (map vampire-related-details social-security-numbers))))
+
+(defn even-numbers
+  ;;lazy-seqは必要になるまで評価されないので、再帰がstack overflowになることもない
+  ([] (even-numbers 0))
+  ([n] (cons n (lazy-seq (even-numbers (+ n 2))))))

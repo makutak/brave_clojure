@@ -232,5 +232,11 @@
   (testing "repeatedly call the provided function to generate each element in the sequence"
     (is (seq?
          ;;ランダムで生成した10までの数字を持つ長さ3のseqを作る
+         ;;=> 毎回関数を実行する。
          ;;repeatは、rand-intを初回だけ実行するので、同じ数字が並んだseqが返る。
-         (take 3 (repeatedly (fn [] (rand-int 10))))))))
+         (take 3 (repeatedly (fn [] (rand-int 10)))))))
+  (testing "generate even number seq"
+    (is (= '(0 2 4 6 8 10)
+           (take 6 (even-numbers))))
+    (is (= '(10 12 14 16 18 20)
+           (take 6 (even-numbers 10))))))
