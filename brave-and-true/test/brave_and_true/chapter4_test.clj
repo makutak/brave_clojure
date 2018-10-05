@@ -248,3 +248,11 @@
   (testing "return false if vector is not nil."
     (is (= false
            (empty? ["no!"])))))
+
+(deftest into-test
+  (testing "map returns seq."
+    (is (= '([:sunlight-reaction "Glitter!"])
+           (map identity {:sunlight-reaction "Glitter!"}))))
+  (testing "into returns not seq."
+    (is (= {:sunlight-reaction "Glitter!"}
+           (into {} (map identity {:sunlight-reaction "Glitter!"}))))))
