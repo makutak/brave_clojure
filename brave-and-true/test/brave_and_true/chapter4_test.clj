@@ -250,6 +250,7 @@
            (empty? ["no!"])))))
 
 (deftest into-test
+  ;;function identity is returns arg.
   (testing "map returns seq."
     (is (= '([:sunlight-reaction "Glitter!"])
            (map identity {:sunlight-reaction "Glitter!"}))))
@@ -261,4 +262,10 @@
               (map identity [:garlic :sesame-oil :fried-eggs])))))
   (testing "into back to oridinal data structures."
     (is (vector?
-         (into [] (map identity [:garlic :sesame-oil :fried-eggs]))))))
+         (into [] (map identity [:garlic :sesame-oil :fried-eggs])))))
+  (testing "map converts list"
+    (is (seq?
+         (map identity [:garlic-clove :garlic-clove]))))
+  (testing "into stick the values into a set"
+    (is (set?
+         (into #{} (map identity [:garlic-clove :garlic-clove]))))))
