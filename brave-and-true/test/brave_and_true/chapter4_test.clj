@@ -279,5 +279,5 @@
     (is (= {:favorite-animal "kitty"
             :relationship-with-teenager "creepy"
             :least-favorite-smell "dog"}
-           (into {:favorite-animal "kitty"} {:relationship-with-teenager "creepy"
-                                             :least-favorite-smell "dog"})))))
+           (into {:favorite-animal "kitty"} {:least-favorite-smell "dog"
+                                             :relationship-with-teenager "creepy"})))))
