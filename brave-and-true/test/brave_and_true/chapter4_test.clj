@@ -240,3 +240,11 @@
            (take 6 (even-numbers))))
     (is (= '(10 12 14 16 18 20)
            (take 6 (even-numbers 10))))))
+
+(deftest empty?-test
+  (testing "return true if vector is nil."
+    (is (= true
+           (empty? []))))
+  (testing "return false if vector is not nil."
+    (is (= false
+           (empty? ["no!"])))))
