@@ -268,4 +268,7 @@
          (map identity [:garlic-clove :garlic-clove]))))
   (testing "into stick the values into a set"
     (is (set?
-         (into #{} (map identity [:garlic-clove :garlic-clove]))))))
+         (into #{} (map identity [:garlic-clove :garlic-clove])))))
+  (testing "into add elements to a map"
+    (is (= {:favorite-emotion "gloomy" :sunlight-reaction "Glitter!"}
+           (into {:favorite-emotion "gloomy"} [[:sunlight-reaction "Glitter!"]])))))
