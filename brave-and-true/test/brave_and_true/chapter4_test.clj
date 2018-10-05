@@ -274,4 +274,10 @@
            (into {:favorite-emotion "gloomy"} [[:sunlight-reaction "Glitter!"]]))))
   (testing "into add elements to a vector"
     (is (= ["cherry" "pine" "spruce"]
-           (into ["cherry"] '("pine" "spruce"))))))
+           (into ["cherry"] '("pine" "spruce")))))
+  (testing "into returning new map with the element of the second map add to the first"
+    (is (= {:favorite-animal "kitty"
+            :relationship-with-teenager "creepy"
+            :least-favorite-smell "dog"}
+           (into {:favorite-animal "kitty"} {:relationship-with-teenager "creepy"
+                                             :least-favorite-smell "dog"})))))
