@@ -52,3 +52,7 @@
   ;;lazy-seqは必要になるまで評価されないので、再帰がstack overflowになることもない
   ([] (even-numbers 0))
   ([n] (cons n (lazy-seq (even-numbers (+ n 2))))))
+
+(defn my-conj
+  [target & additoinal]
+  (into target additoinal))

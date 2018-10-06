@@ -295,4 +295,11 @@
     (is (= {:place "ye olde cemetarium"
             :time "midnight"}
            (conj {:time "midnight"}
-                 [:place "ye olde cemetarium"])))))
+                 [:place "ye olde cemetarium"]))))
+  (testing "define conj in terms of into."
+    (is (= [0 [1]]
+           (my-conj [0] [1])))
+    (is (= [0 1]
+           (my-conj [0] 1)))
+    (is (= [0 1 2 3 4 5]
+           (my-conj [0] 1 2 3 4 5)))))
