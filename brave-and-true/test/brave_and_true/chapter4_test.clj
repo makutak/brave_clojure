@@ -287,4 +287,7 @@
            (conj [0] [1]))))
   (testing  "if you want to return the same value as into, you pass to second argument as scalar."
     (is (= (into [0] [1])
-           (conj [0] 1)))))
+           (conj [0] 1))))
+  (testing "conj can accepet a lot of argument"
+    (is (= [0 1 2 3 4 5]
+           (conj [0] 1 2 3 4 5)))))
