@@ -290,4 +290,9 @@
            (conj [0] 1))))
   (testing "conj can accepet a lot of argument"
     (is (= [0 1 2 3 4 5]
-           (conj [0] 1 2 3 4 5)))))
+           (conj [0] 1 2 3 4 5))))
+  (testing "conj can add maps to another map"
+    (is (= {:place "ye olde cemetarium"
+            :time "midnight"}
+           (conj {:time "midnight"}
+                 [:place "ye olde cemetarium"])))))
