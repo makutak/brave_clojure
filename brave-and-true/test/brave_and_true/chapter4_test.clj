@@ -281,3 +281,7 @@
             :least-favorite-smell "dog"}
            (into {:favorite-animal "kitty"} {:least-favorite-smell "dog"
                                              :relationship-with-teenager "creepy"})))))
+(deftest conj-test
+  (testing "conj add elements to a collection"
+    (is (= [0 [1]]
+           (conj [0] [1])))))
