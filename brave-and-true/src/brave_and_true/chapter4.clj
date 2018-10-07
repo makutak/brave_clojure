@@ -54,5 +54,9 @@
   ([n] (cons n (lazy-seq (even-numbers (+ n 2))))))
 
 (defn my-conj
-  [target & additoinal]
-  (into target additoinal))
+  [target & additoins]
+  (into target additoins))
+
+(defn my-into
+  [target additons]
+  (apply conj target additons))

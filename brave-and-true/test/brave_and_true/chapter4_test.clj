@@ -309,4 +309,7 @@
     (is (= 3
            (apply max [0 1 2 3])))
     (is (= (max 0 1 2 3)
-           (apply max [0 1 2 3])))))
+           (apply max [0 1 2 3]))))
+  (testing "define into in terms of conj by using apply"
+    (is (= (into [0] [1 2 3])
+           (my-into [0] [1 2 3])))))
