@@ -307,4 +307,6 @@
 (deftest apply-test
   (testing "apply returns max value from vector"
     (is (= 3
+           (apply max [0 1 2 3])))
+    (is (= (max 0 1 2 3)
            (apply max [0 1 2 3])))))
