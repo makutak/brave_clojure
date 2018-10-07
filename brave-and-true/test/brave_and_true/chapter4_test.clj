@@ -303,3 +303,8 @@
            (my-conj [0] 1)))
     (is (= [0 1 2 3 4 5]
            (my-conj [0] 1 2 3 4 5)))))
+
+(deftest apply-test
+  (testing "apply returns max value from vector"
+    (is (= 3
+           (apply max [0 1 2 3])))))
