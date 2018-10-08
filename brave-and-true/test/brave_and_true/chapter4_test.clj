@@ -321,4 +321,7 @@
              (add10 3))))
     (is (= 15
            (let [add10 (partial + 10)]
-             (add10 5))))))
+             (add10 5))))
+    (is (= ["water" "earth" "air" "unobtainium" "adamantium"]
+           (let [add-missing-elements (partial conj ["water" "earth" "air"])]
+             (add-missing-elements "unobtainium" "adamantium"))))))
