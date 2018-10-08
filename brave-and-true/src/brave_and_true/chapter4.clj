@@ -60,3 +60,8 @@
 (defn my-into
   [target additons]
   (apply conj target additons))
+
+(defn my-partial
+  [partialize-fn & args]
+  (fn [& more-args]
+    (apply partialize-fn (into args more-args))))
