@@ -313,3 +313,12 @@
   (testing "define into in terms of conj by using apply"
     (is (= (into [0] [1 2 3])
            (my-into [0] [1 2 3])))))
+
+(deftest partial-test
+  (testing "partial resturns new funcion"
+    (is (= 13
+           (let [add10 (partial + 10)]
+             (add10 3))))
+    (is (= 15
+           (let [add10 (partial + 10)]
+             (add10 5))))))
