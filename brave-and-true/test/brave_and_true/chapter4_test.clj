@@ -334,3 +334,10 @@
   (testing "return upper-case if emergency"
     (is (= "RED LIGHT AHEAD"
            (emergency "red light ahead")))))
+
+(deftest complement-test
+  (testing "return not vampire"
+    (is (= '({:makes-blood-puns? false, :has-pulse? true, :name "McFishwich"}
+            {:makes-blood-puns? false, :has-pulse? true, :name "McMackson"}
+            {:makes-blood-puns? true, :has-pulse? true, :name "Mickey Mouse"})
+           (identify-human (range 0 4))))))

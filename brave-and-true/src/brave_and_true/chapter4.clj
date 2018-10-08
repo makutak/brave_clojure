@@ -74,3 +74,9 @@
 
 (def warn (partial lousy-logger :warn))
 (def emergency (partial lousy-logger :emergency))
+
+(def not-vampire? (complement vampire?))
+(defn identify-human
+  [social-security-numbers]
+  (filter not-vampire?
+          (map vampire-related-details social-security-numbers)))
