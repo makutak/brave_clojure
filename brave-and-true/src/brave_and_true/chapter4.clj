@@ -65,3 +65,12 @@
   [partialize-fn & args]
   (fn [& more-args]
     (apply partialize-fn (into args more-args))))
+
+(defn lousy-logger
+  [log-level message]
+  (condp = log-level
+    :warn (clojure.string/lower-case message)
+    :emergency (clojure.string/upper-case message)))
+
+(def warn (partial lousy-logger :warn))
+(def emergency (partial lousy-logger :emergency))

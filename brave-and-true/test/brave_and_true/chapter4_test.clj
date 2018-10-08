@@ -327,4 +327,10 @@
              (add-missing-elements "unobtainium" "adamantium"))))
     (is (= 1020
            (let [add20 (my-partial + 20)]
-             (add20 1000))))))
+             (add20 1000)))))
+  (testing "return lower-case if warn"
+    (is (= "red light ahead"
+           (warn "Red light ahead"))))
+  (testing "return upper-case if emergency"
+    (is (= "RED LIGHT AHEAD"
+           (emergency "red light ahead")))))
