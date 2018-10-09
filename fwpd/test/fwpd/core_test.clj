@@ -2,6 +2,7 @@
   (:require [clojure.test :refer :all]
             [fwpd.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest filename-test
+  (testing "slurp reading file and return string"
+    (is (= "Edward Cullen,10\nBella Swan,0\nCharlie Swan,0\nJacob Black,3\nCarlisle Cullen,6\n"
+           (slurp filename)))))
