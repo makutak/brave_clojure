@@ -340,4 +340,10 @@
     (is (= '({:makes-blood-puns? false, :has-pulse? true, :name "McFishwich"}
             {:makes-blood-puns? false, :has-pulse? true, :name "McMackson"}
             {:makes-blood-puns? true, :has-pulse? true, :name "Mickey Mouse"})
-           (identify-human (range 0 4))))))
+           (identify-human (range 0 4)))))
+  (testing "return true if arg is positive"
+    (is (= true
+           (my-pos 1))))
+  (testing "return false if arg is negative"
+    (is (= false
+           (my-pos -1)))))

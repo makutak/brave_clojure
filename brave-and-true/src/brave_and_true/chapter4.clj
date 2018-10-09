@@ -80,3 +80,10 @@
   [social-security-numbers]
   (filter not-vampire?
           (map vampire-related-details social-security-numbers)))
+
+(defn my-complement
+  [fun]
+  (fn [& args]
+    (not (apply fun args))))
+
+(def my-pos (my-complement neg?))
