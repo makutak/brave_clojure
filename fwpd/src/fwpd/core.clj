@@ -14,3 +14,5 @@
 (defn convert
   [vamp-key value]
   ((get conversions vamp-key) value))
+
+;; #に続けて文字列を書くと、その文字列は正規表現リテラルとして扱われる
