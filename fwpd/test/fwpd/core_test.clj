@@ -16,6 +16,6 @@
            (convert :glitter-index "3")))))
 
 (deftest parse-test
-  (testing "parse converts string to list of vector"
+  (testing "parse converts string to seq of vectors"
     (is (= '(["Tokyo" "Tokyo"] ["Kanagawa" "Yokohama"] ["Chiba" "Chiba"] ["Saitama" "Saitama"])
            (parse "Tokyo,Tokyo\nKanagawa,Yokohama\nChiba,Chiba\nSaitama,Saitama\n")))))
