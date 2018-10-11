@@ -21,3 +21,8 @@
   [string]
   (map #(clojure.string/split % #",")
        (clojure.string/split string #"\n")))
+
+;; (map str '(1 2 3) '("a" "b" "c")) -> ("1a" "2b" "3c")
+;; つまり、 (list (str 1 "a") (str 2 "b") (str 3 "c") みたいな感じで展開される。
+;; 複数の引数を受け取れる述語関数は各seqの要素に対して、その関数を実行して、
+;; その実行結果をseqにして返す?
