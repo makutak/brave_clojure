@@ -14,3 +14,8 @@
   (testing "convert returns int value if vamp-key is :glitter-index"
     (is (= 3
            (convert :glitter-index "3")))))
+
+(deftest parse-test
+  (testing "parse converts string to list of vector"
+    (is (= '(["Tokyo" "Tokyo"] ["Kanagawa" "Yokohama"] ["Chiba" "Chiba"] ["Saitama" "Saitama"])
+           (parse "Tokyo,Tokyo\nKanagawa,Yokohama\nChiba,Chiba\nSaitama,Saitama\n")))))

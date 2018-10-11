@@ -16,3 +16,8 @@
   ((get conversions vamp-key) value))
 
 ;; #に続けて文字列を書くと、その文字列は正規表現リテラルとして扱われる
+(defn parse
+  "Convert a CSV into rows of column."
+  [string]
+  (map #(clojure.string/split % #",")
+       (clojure.string/split string #"\n")))
