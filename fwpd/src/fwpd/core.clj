@@ -38,3 +38,9 @@
 (defn glitter-filter
   [minimum-glitter records]
   (filter #(>= (:glitter-index %) minimum-glitter) records))
+
+;; exercise
+;; 1 Turn the result of your glitter filter into a list of names.
+(defn name-list
+  [filited]
+  (map :name filited))

@@ -39,3 +39,8 @@
            (glitter-filter 10 (mapify (parse (slurp filename))))))
     (is (= '()
            (glitter-filter 20 (mapify (parse (slurp filename))))))))
+
+(deftest name-list-test
+  (testing "fliter results to list of name"
+    (is (= '("Edward Cullen" "Jacob Black" "Carlisle Cullen")
+           (name-list (glitter-filter 3 (mapify (parse (slurp filename)))))))))
