@@ -25,3 +25,12 @@
 ;; (map str '(1 2 3) '("a" "b" "c")) -> ("1a" "2b" "3c")
 ;; つまり、 (list (str 1 "a") (str 2 "b") (str 3 "c") みたいな感じで展開される。
 ;; 複数の引数を受け取れる述語関数は各seqの各要素に対して、その関数をmappingして返す。
+(defn mapify
+  "Return a seq of maps like {:name \"Edward Cullen\" :glitter-index 10"
+  [rows]
+  (map (fn [unmapped-row]
+         (reduce (fn [row-map [vamp-key value]]
+                   (assoc row-map vamp-key (convert vamp-key value)))
+                 {}
+                 (map vector vamp-keys unmapped-row)))
+       rows))
