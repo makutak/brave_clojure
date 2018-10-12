@@ -19,3 +19,12 @@
   (testing "parse converts string to seq of vectors"
     (is (= '(["Tokyo" "Tokyo"] ["Kanagawa" "Yokohama"] ["Chiba" "Chiba"] ["Saitama" "Saitama"])
            (parse "Tokyo,Tokyo\nKanagawa,Yokohama\nChiba,Chiba\nSaitama,Saitama\n")))))
+
+(deftest mapify-test
+  (testing "return seq of map"
+    (is (= '({:name "Edward Cullen", :glitter-index 10}
+             {:name "Bella Swan", :glitter-index 0}
+             {:name "Charlie Swan", :glitter-index 0}
+             {:name "Jacob Black", :glitter-index 3}
+             {:name "Carlisle Cullen", :glitter-index 6})
+           (mapify (parse (slurp filename)))))))
