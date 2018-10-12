@@ -28,3 +28,14 @@
              {:name "Jacob Black", :glitter-index 3}
              {:name "Carlisle Cullen", :glitter-index 6})
            (mapify (parse (slurp filename)))))))
+
+(deftest glitter-filter-test
+  (testing "return filtering seq of map less than minimum-glitter"
+    (is (= '({:name "Edward Cullen", :glitter-index 10}
+             {:name "Jacob Black", :glitter-index 3}
+             {:name "Carlisle Cullen", :glitter-index 6})
+           (glitter-filter 3 (mapify (parse (slurp filename))))))
+    (is (= '({:name "Edward Cullen", :glitter-index 10})
+           (glitter-filter 10 (mapify (parse (slurp filename))))))
+    (is (= '()
+           (glitter-filter 20 (mapify (parse (slurp filename))))))))

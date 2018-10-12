@@ -34,3 +34,7 @@
                  {}
                  (map vector vamp-keys unmapped-row)))
        rows))
+
+(defn glitter-filter
+  [minimum-glitter records]
+  (filter #(>= (:glitter-index %) minimum-glitter) records))
