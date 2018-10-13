@@ -250,7 +250,7 @@
            (empty? ["no!"])))))
 
 (deftest into-test
-  ;;function identity is returns arg.
+  ;;function 'identity' is returns arg.
   (testing "map returns seq."
     (is (= '([:sunlight-reaction "Glitter!"])
            (map identity {:sunlight-reaction "Glitter!"}))))
