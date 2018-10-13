@@ -40,7 +40,12 @@
   (filter #(>= (:glitter-index %) minimum-glitter) records))
 
 ;; exercise
-;; 1 Turn the result of your glitter filter into a list of names.
+;; 1. Turn the result of your glitter filter into a list of names.
 (defn name-list
   [filited]
   (map :name filited))
+
+;; 2. write append function. which will append a new suspect to your list of suspects.
+(defn append
+  [records new-record]
+  (conj records new-record))
