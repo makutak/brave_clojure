@@ -48,4 +48,4 @@
 ;; 2. write append function. which will append a new suspect to your list of suspects.
 (defn append
   [records new-record]
-  (conj records new-record))
+  (concat records (list new-record)))

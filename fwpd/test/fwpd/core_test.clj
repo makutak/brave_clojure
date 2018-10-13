@@ -44,3 +44,12 @@
   (testing "fliter results to list of name"
     (is (= '("Edward Cullen" "Jacob Black" "Carlisle Cullen")
            (name-list (glitter-filter 3 (mapify (parse (slurp filename)))))))))
+
+(deftest append-test
+  (testing "append new element to list"
+    (is (= '({:name "saki" :color "yellow"}
+             {:name "momoko" :color "pink"}
+             {:name "chinami" :color "orange"})
+           (append '({:name "saki" :color "yellow"}
+                     {:name "momoko" :color "pink"})
+                   {:name "chinami" :color "orange"})))))
