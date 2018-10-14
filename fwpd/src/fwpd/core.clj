@@ -49,3 +49,23 @@
 (defn append
   [records new-record]
   (concat records (list new-record)))
+
+;; 3. write validate function, which will check that :name and :glitter-index are present when you append.
+;; The validate function should accept two arguments:
+;; a map of keywords to validating functions, similar to conversions, and the record to be validated.
+
+(def correct-map {:name string?
+                  :glitter-index integer?})
+
+(defn valid-map
+  [correct [key value]]
+  (and (not (nil? (get correct key)))
+       ((get correct key) value)))
+
+(defn validate
+  [correct validated]
+  (and
+   (= (keys correct)
+      (keys validated))
+   (every? true?
+           (map #(valid-map correct %) validated))))

@@ -53,3 +53,34 @@
            (append '({:name "saki" :color "yellow"}
                      {:name "momoko" :color "pink"})
                    {:name "chinami" :color "orange"})))))
+
+(deftest valid-test
+  (testing "valid map for args that correct map and validated key value"
+    (is (= true
+           (valid-map correct-map [:name "hoge"])))
+    (is (= true
+           (valid-map correct-map [:glitter-index 1])))
+    (is (= false
+           (valid-map correct-map [:name 1])))
+    (is (= false
+           (valid-map correct-map [:glitter-index "hoge"])))
+    (is (= false
+           (valid-map correct-map [:false-key "false"])))))
+
+(deftest validate-test
+  (testing "return true for correct map"
+    (is (= true
+           (validate correct-map {:name "hoge" :glitter-index 1}))))
+  (testing "return false for invalid map"
+    (is (= false
+           (validate correct-map {:name "hoge"})))
+    (is (= false
+           (validate correct-map {:glitter-index 1})))
+    (is (= false
+           (validate correct-map {:name 1 :glitter-index 1})))
+    (is (= false
+           (validate correct-map {:name "name" :glitter-index "index"})))
+    (is (= false
+           (validate correct-map {:name 1 :glitter-index "index"})))
+    (is (= false
+           (validate correct-map {:hoge "foo" :fuga "bar"})))))
