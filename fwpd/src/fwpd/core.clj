@@ -45,6 +45,7 @@
   [filited]
   (map :name filited))
 
+
 ;; 2. write append function. which will append a new suspect to your list of suspects.
 (defn append
   [records new-record]
@@ -77,3 +78,15 @@
   (apply str (map #(clojure.string/join "\n" %)
                   (vector (map #(clojure.string/join "," (vals %))
                                mapped-rows)))))
+
+;;こっちのほうが習ったことに近い?
+(defn map->csv-string-2
+  [mapped-row]
+  (apply str (map #(clojure.string/join "\n" %)
+                  (list (map #(clojure.string/join "," %)
+                             (map (fn [mapped-row]
+                                    (reduce (fn [row [key val]]
+                                              (into row (list val)))
+                                            []
+                                            mapped-row))
+                                  mapped-row))))))
