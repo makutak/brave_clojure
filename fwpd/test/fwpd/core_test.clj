@@ -93,3 +93,12 @@
            (map->csv-string '({:name "saki" :color "yellow"}
                               {:name "momoko" :color "pink"}
                               {:name "chinami" :color "orange"}))))))
+
+(deftest map->csv-string-2-test
+  (testing "map convert to csv-string"
+    (is (= "Edward Cullen,10\nBella Swan,0\nCharlie Swan,0\nJacob Black,3\nCarlisle Cullen,6"
+           (map->csv-string-2 (mapify (parse (slurp filename))))))
+    (is (= "saki,yellow\nmomoko,pink\nchinami,orange"
+           (map->csv-string-2 '({:name "saki" :color "yellow"}
+                              {:name "momoko" :color "pink"}
+                              {:name "chinami" :color "orange"}))))))
