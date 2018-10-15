@@ -84,3 +84,12 @@
            (validate correct-map {:name 1 :glitter-index "index"})))
     (is (= false
            (validate correct-map {:hoge "foo" :fuga "bar"})))))
+
+(deftest map->csv-string-test
+  (testing "map convert to csv-string"
+    (is (= "Edward Cullen,10\nBella Swan,0\nCharlie Swan,0\nJacob Black,3\nCarlisle Cullen,6"
+           (map->csv-string (mapify (parse (slurp filename))))))
+    (is (= "saki,yellow\nmomoko,pink\nchinami,orange"
+           (map->csv-string '({:name "saki" :color "yellow"}
+                              {:name "momoko" :color "pink"}
+                              {:name "chinami" :color "orange"}))))))

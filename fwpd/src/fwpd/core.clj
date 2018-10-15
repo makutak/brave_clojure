@@ -69,3 +69,11 @@
       (keys validated))
    (every? true?
            (map #(valid-map correct %) validated))))
+
+;; 4. Write a function that will take your list of maps and convert it back to a CSV string.
+;; You’ll need to use the clojure.string/join function.
+(defn map->csv-string
+  [mapped-rows]
+  (apply str (map #(clojure.string/join "\n" %)
+                  (vector (map #(clojure.string/join "," (vals %))
+                               mapped-rows)))))
