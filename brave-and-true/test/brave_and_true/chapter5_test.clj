@@ -5,14 +5,14 @@
 
 
 (deftest sum-test
-  (testing "sum from list"
+  (testing "sum of list"
     (is (= 10
            (sum '(10))))
     (is (= 55
            (sum '(1 2 3 4 5 6 7 8 9 10)))
         (= 0
            (sum '()))))
-  (testing "sum from list and initial value"
+  (testing "sum of list and initial value"
     (is (= 15
            (sum '(10) 5)))
     (is (= 155
