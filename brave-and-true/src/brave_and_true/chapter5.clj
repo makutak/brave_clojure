@@ -1,4 +1,8 @@
-(ns brave-and-true.chapter5 (:gen-class))
+(ns brave-and-true.chapter5
+  (:gen-class)
+  (:require [clojure.tools.trace :as trace]))
+
+(trace/trace-ns brave-and-true.chapter5)
 
 (defn sum
   ([vals]
