@@ -1,8 +1,12 @@
 (ns brave-and-true.chapter5
   (:gen-class)
-  (:require [clojure.tools.trace :as trace]))
+  (:use [clojure.tools.trace :as trace]))
 
 (trace/trace-ns brave-and-true.chapter5)
+
+;; traceはciderで可能
+;; C-c M-t v <function-name> => function-nameのtraceができる。
+;; C-c M-t n => namespace全体の関数のtraceができる。
 
 (defn sum
   ([vals]
