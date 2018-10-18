@@ -1,8 +1,7 @@
 (ns brave-and-true.chapter5
   (:gen-class)
-  (:use [clojure.tools.trace :as trace]))
-
-(trace/trace-ns brave-and-true.chapter5)
+  (:require [clojure.tools.trace :as trace])
+  (:require [clojure.string :as s]))
 
 ;; traceはciderで可能
 ;; C-c M-t v <function-name> => function-nameのtraceができる。
@@ -25,3 +24,7 @@
      accumulating-total
      (recur (rest vals)
             (+ (first vals) accumulating-total)))))
+
+(defn clean
+  [text]
+  (s/replace (s/trim text) #"lol" "LOL"))

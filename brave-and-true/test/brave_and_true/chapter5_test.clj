@@ -34,3 +34,18 @@
            (sum-use-recur '(1 2 3 4 5 6 7 8 9 10) 100)))
     (is (= 45
            (sum-use-recur '() 45)))))
+
+(deftest clean-test
+  (testing "removing trailing spaces"
+    (is (= "aaaaa aaaaaa aaaaaaaaaaaaaaaaaa"
+           (clean "aaaaa aaaaaa aaaaaaaaaaaaaaaaaa ")))
+    (is (= ""
+           (clean "              "))))
+  (testing "replace lol to LOL"
+    (is (= "LOL"
+           (clean "lol")))
+    (is (= "hogehogeLOLfugafuga"
+           (clean "hogehogelolfugafuga"))))
+  (testing "removing trailing spaces and replace lol to LOL"
+    (is (= "My boa constrictor is so sassy LOL!"
+           (clean "My boa constrictor is so sassy lol!  ")))))
