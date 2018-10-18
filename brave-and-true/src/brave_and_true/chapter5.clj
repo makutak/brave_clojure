@@ -12,3 +12,12 @@
      accumulating-total
      (sum (rest vals)
           (+ (first vals) accumulating-total)))))
+
+(defn sum-use-recur
+  ([vals]
+   (sum-use-recur vals 0))
+  ([vals accumulating-total]
+   (if (empty? vals)
+     accumulating-total
+     (recur (rest vals)
+            (+ (first vals) accumulating-total)))))
