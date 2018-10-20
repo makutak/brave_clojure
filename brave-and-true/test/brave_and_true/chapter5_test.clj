@@ -49,3 +49,10 @@
   (testing "removing trailing spaces and replace lol to LOL"
     (is (= "My boa constrictor is so sassy LOL!"
            (clean "My boa constrictor is so sassy lol!  ")))))
+
+(deftest comp-test
+  (testing "multiplies the numbers two args and then increments the result"
+    (is (= 7
+           ((comp inc *) 2 3)))
+    (is (= 10
+           ((comp inc *) 3 3)))))
