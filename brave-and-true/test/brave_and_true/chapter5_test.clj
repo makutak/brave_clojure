@@ -56,3 +56,14 @@
            ((comp inc *) 2 3)))
     (is (= 10
            ((comp inc *) 3 3)))))
+
+(deftest character-test
+  (testing "return character's intelligence"
+    (is (= 10
+           (c-int character))))
+  (testing "return character's strength"
+    (is (= 4
+           (c-str character))))
+  (testing "return character's dexterity"
+    (is (= 5
+           (c-dex character)))))

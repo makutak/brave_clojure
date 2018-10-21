@@ -28,3 +28,13 @@
 (defn clean
   [text]
   (s/replace (s/trim text) #"lol" "LOL"))
+
+(def character
+  {:name "Smooches McCutes"
+   :attribute {:intelligence 10
+               :strength 4
+               :dexterity 5}})
+
+(def c-int (comp :intelligence :attribute))
+(def c-str (comp :strength :attribute))
+(def c-dex (comp :dexterity :attribute))
