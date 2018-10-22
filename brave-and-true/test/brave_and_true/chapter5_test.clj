@@ -88,3 +88,16 @@
            ((two-comp inc *) 2 3)))
     (is (= 10
            ((two-comp inc *) 3 3)))))
+
+(deftest sleepy-identity-test
+  (testing "return the given value after 1 second"
+    (is (= "hoge"
+           (sleepy-identity "hoge")))))
+
+(deftest memo-sleepy-identity-test
+  (testing "return the given value after 1second"
+    (is (= "hoge"
+           (memo-sleepy-identity "hoge"))))
+  (testing "return the given value immediately"
+    (is (= "hoge"
+           (memo-sleepy-identity "hoge")))))

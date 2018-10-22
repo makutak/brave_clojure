@@ -49,3 +49,12 @@
   [f g]
   (fn [& args]
     (f (apply g args))))
+
+(defn sleepy-identity
+  "Return the given value after 1 second"
+  [x]
+  (Thread/sleep 1000)
+  x)
+
+;;同じ引数で呼ばれるときは、1秒待たずに実行される
+(def memo-sleepy-identity (memoize sleepy-identity))
