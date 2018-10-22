@@ -74,3 +74,10 @@
            (spell-slots character)))
     (is (= 4
            (spell-slots {:attribute {:intelligence 7}})))))
+
+(deftest spell-slots-comp-test
+  (testing "return same value using spell-slots function"
+    (is (= 6
+           (spell-slots-comp character)))
+    (is (= 4
+           (spell-slots-comp {:attribute {:intelligence 7}})))))
