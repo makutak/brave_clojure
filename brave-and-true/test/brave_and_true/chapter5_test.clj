@@ -67,3 +67,10 @@
   (testing "return character's dexterity"
     (is (= 5
            (c-dex character)))))
+
+(deftest spell-slot-test
+  (testing "devide intelligence by 2 and add 1 and to integer."
+    (is (= 6
+           (spell-slots character)))
+    (is (= 4
+           (spell-slots {:attribute {:intelligence 7}})))))

@@ -38,3 +38,9 @@
 (def c-int (comp :intelligence :attribute))
 (def c-str (comp :strength :attribute))
 (def c-dex (comp :dexterity :attribute))
+
+(defn spell-slots
+  [char]
+  (int (inc (/ (c-int char) 2))))
+
+(def spell-slots-comp (comp int inc #(/ % 2) c-int))
