@@ -81,3 +81,10 @@
            (spell-slots-comp character)))
     (is (= 4
            (spell-slots-comp {:attribute {:intelligence 7}})))))
+
+(deftest two-comp-test
+  (testing "return same value using comp"
+    (is (= 7
+           ((two-comp inc *) 2 3)))
+    (is (= 10
+           ((two-comp inc *) 3 3)))))

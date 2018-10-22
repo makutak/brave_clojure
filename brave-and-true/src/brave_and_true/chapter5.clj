@@ -44,3 +44,8 @@
   (int (inc (/ (c-int char) 2))))
 
 (def spell-slots-comp (comp int inc #(/ % 2) c-int))
+
+(defn two-comp
+  [f g]
+  (fn [& args]
+    (f (apply g args))))
