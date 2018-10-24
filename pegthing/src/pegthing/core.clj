@@ -3,7 +3,7 @@
   ;; allows you to run the program from the command line
   (:gen-class))
 
-;;allows functions to refer to those names before they’re define.
+;;allows functions to refer to those names before they're define.
 (declare successful-move prompt-move game-over query-rows)
 
 (defn tri*
