@@ -13,6 +13,8 @@
    (let [new-sum (+ sum n)]
      (cons new-sum (lazy-seq (tri* new-sum (inc n)))))))
 
+(def tri (tri*))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
