@@ -25,6 +25,13 @@
   [n]
   (last (take n tri)))
 
+(defn row-num
+  "Returns row number the position belongs to: pos 1 in row 1,
+  positions 2 and 3 in row 2, etc"
+  [pos]
+  (inc (count (take-while #(> pos %) tri))))
+
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]

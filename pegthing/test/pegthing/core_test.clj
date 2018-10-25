@@ -28,3 +28,12 @@
            (row-tri 6)))
     (is (= 5050
            (row-tri 100)))))
+
+(deftest row-num-test
+  (testing "return number the position in the row"
+    (is (= 2
+           (row-num 2)))
+    (is (= 2
+           (row-num 3)))
+    (is (= 5
+           (row-num 15)))))
