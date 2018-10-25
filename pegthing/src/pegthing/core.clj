@@ -16,6 +16,7 @@
 (def tri (tri*))
 
 (defn triangular?
+  "Is the number triangular? e.g. 1, 3, 6, 10, 15, etc"
   [n]
   (= n (last (take-while #(>= n %) tri))))
 
