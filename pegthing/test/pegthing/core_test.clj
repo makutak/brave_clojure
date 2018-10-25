@@ -19,3 +19,12 @@
            (triangular? 4)))
     (is (= true
            (triangular? 5050)))))
+
+(deftest row-tri-test
+  (testing "return the triangular number at the end of row"
+    (is (= 15
+           (row-tri 5)))
+    (is (= 21
+           (row-tri 6)))
+    (is (= 5050
+           (row-tri 100)))))
