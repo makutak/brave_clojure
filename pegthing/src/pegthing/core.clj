@@ -15,6 +15,10 @@
 
 (def tri (tri*))
 
+(defn triangular?
+  [n]
+  (= n (last (take-while #(>= n %) tri))))
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
