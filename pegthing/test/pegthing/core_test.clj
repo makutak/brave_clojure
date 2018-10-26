@@ -37,3 +37,15 @@
            (row-num 3)))
     (is (= 5
            (row-num 15)))))
+
+(deftest assoc-in-test
+  (testing "assoc-in make nested map"
+    (is (= {:cookie {:monster {:vocals "Finntroll"}}}
+           (assoc-in {} [:cookie :monster :vocals] "Finntroll")))))
+
+(deftest get-in-test
+  (testing "get-in look up values in nested map"
+    (is (= "Finntroll"
+           (get-in {:cookie {:monster {:vocals "Finntroll"}}} [:cookie :monster :vocals])))
+    (is (= {:vocals "Finntroll"}
+           (get-in {:cookie {:monster {:vocals "Finntroll"}}} [:cookie :monster])))))
