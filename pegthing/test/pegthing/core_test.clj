@@ -49,3 +49,15 @@
            (get-in {:cookie {:monster {:vocals "Finntroll"}}} [:cookie :monster :vocals])))
     (is (= {:vocals "Finntroll"}
            (get-in {:cookie {:monster {:vocals "Finntroll"}}} [:cookie :monster])))))
+
+(deftest connect-test
+  (testing "return board if destination is begger than max-position"
+    (is (= {}
+           (connect {} 1 1 1 2)))
+    (is (= {}
+           (connect {} 15 1 2 400))))
+  (testing "return connection between two postion"
+    (is (= {1 {:connection {4 2}}, 4 {:connection {1 2}}}
+           (connect {} 15 1 2 4)))
+    (is (= {2 {:connection {7 4}}, 7 {:connection {2 4}}}
+           (connect {} 15 2 4 7)))))
