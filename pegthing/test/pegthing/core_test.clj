@@ -89,3 +89,15 @@
            (connect-down-left {} 15 7)))
     (is (= {}
            (connect-down-left {} 15 15)))))
+
+(deftest connect-down-right-test
+  (testing "return connection if pos can connect down right"
+    (is (= {1 {:connection {6 3}} 6 {:connection {1 3}}}
+           (connect-down-right {} 15 1)))
+    (is (= {2 {:connection {9 5}} 9 {:connection {2 5}}}
+           (connect-down-right {} 15 2))))
+  (testing "return board if pos can not connect down right"
+    (is (= {}
+           (connect-down-right {} 15 9)))
+    (is (= {}
+           (connect-down-right {} 6 3)))))

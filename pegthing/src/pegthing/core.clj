@@ -56,6 +56,14 @@
         destination (+ 1 row neighbor)]
     (connect board max-pos pos neighbor destination)))
 
+(defn connect-down-right
+  [board max-pos pos]
+  (let [row (row-num pos)
+        neighbor (+ 1 row pos)
+        destination (+ 2 row neighbor)]
+    (connect board max-pos pos neighbor destination)))
+
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
