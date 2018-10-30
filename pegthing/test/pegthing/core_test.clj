@@ -101,3 +101,10 @@
            (connect-down-right {} 15 9)))
     (is (= {}
            (connect-down-right {} 6 3)))))
+
+(deftest add-pos-test
+  (testing "return the peg and performs connections"
+    (is (= {1 {:connections {6 3, 4 2}, :pegged true}
+            4 {:connections {1 2}}
+            6 {:connections {1 3}}}
+           (add-pos {} 15 1)))))
