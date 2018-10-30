@@ -57,18 +57,18 @@
     (is (= {}
            (connect {} 15 1 2 400))))
   (testing "return connection between two postion"
-    (is (= {1 {:connection {4 2}}, 4 {:connection {1 2}}}
+    (is (= {1 {:connections {4 2}}, 4 {:connections {1 2}}}
            (connect {} 15 1 2 4)))
-    (is (= {2 {:connection {7 4}}, 7 {:connection {2 4}}}
+    (is (= {2 {:connections {7 4}}, 7 {:connections {2 4}}}
            (connect {} 15 2 4 7)))))
 
 (deftest connect-right-test
   (testing "return connection if pos can connect ritght"
-    (is (= {4 {:connection {6 5}} 6 {:connection {4 5}}}
+    (is (= {4 {:connections {6 5}} 6 {:connections {4 5}}}
            (connect-right {} 15 4)))
-    (is (= {7 {:connection {9 8}} 9 {:connection {7 8}}}
+    (is (= {7 {:connections {9 8}} 9 {:connections {7 8}}}
            (connect-right {} 15 7)))
-    (is (= {12 {:connection {14 13}} 14 {:connection {12 13}}}
+    (is (= {12 {:connections {14 13}} 14 {:connections {12 13}}}
            (connect-right {} 15 12))))
   (testing "return board if pos can not connect right"
     (is (= {}
@@ -80,9 +80,9 @@
 
 (deftest connect-down-left-test
   (testing "return connectoin if pos can connect down left"
-    (is (= {1 {:connection {4 2}} 4 {:connection {1 2}}}
+    (is (= {1 {:connections {4 2}} 4 {:connections {1 2}}}
            (connect-down-left {} 15 1)))
-    (is (= {3 {:connection {8 5}} 8 {:connection {3 5}}}
+    (is (= {3 {:connections {8 5}} 8 {:connections {3 5}}}
            (connect-down-left {} 15 3))))
   (testing "return board if pos can not connect down left"
     (is (= {}
@@ -92,9 +92,9 @@
 
 (deftest connect-down-right-test
   (testing "return connection if pos can connect down right"
-    (is (= {1 {:connection {6 3}} 6 {:connection {1 3}}}
+    (is (= {1 {:connections {6 3}} 6 {:connections {1 3}}}
            (connect-down-right {} 15 1)))
-    (is (= {2 {:connection {9 5}} 9 {:connection {2 5}}}
+    (is (= {2 {:connections {9 5}} 9 {:connections {2 5}}}
            (connect-down-right {} 15 2))))
   (testing "return board if pos can not connect down right"
     (is (= {}

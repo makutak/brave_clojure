@@ -36,7 +36,7 @@
   [board max-pos pos neighbor destination]
   (if (<= destination max-pos)
     (reduce (fn [new-board [p1 p2]]
-              (assoc-in new-board [p1 :connection p2] neighbor))
+              (assoc-in new-board [p1 :connections p2] neighbor))
             board
             [[pos destination] [destination pos]])
     board))
