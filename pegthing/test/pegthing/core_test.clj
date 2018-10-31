@@ -126,7 +126,31 @@
                       15 {:pegged true, :connections {13 14, 6 10}},
                       :rows 5})
 
+(def five-rows-board {1  {:pegged true, :connections {6 3, 4 2}},
+                      2  {:pegged true, :connections {9 5, 7 4}},
+                      3  {:pegged true, :connections {10 6, 8 5}},
+                      4  {:pegged true, :connections {13 8, 11 7, 6 5, 1 2}},
+                      5  {:pegged true, :connections {14 9, 12 8}},
+                      6  {:pegged true, :connections {15 10, 13 9, 4 5, 1 3}},
+                      :rows 5})
+
+(def three-rows-board {:rows 3,
+                       1 {:pegged true, :connections {4 2, 6 3}},
+                       4 {:connections {1 2, 6 5}, :pegged false},
+                       6 {:connections {1 3, 4 5}, :pegged false},
+                       2 {:pegged true},
+                       3 {:pegged true},
+                       5 {:pegged true}})
+
 (deftest new-board-test
   (testing "return a board with the given number of rows"
     (is (= five-rows-board
            (new-board 5)))))
+
+(deftest pegged?-test
+  (testing "return true if the position has a peg"
+    (is (= true
+           (pegged? five-rows-board 5))))
+  (testing "return false if the position does not have a peg"
+    (is (= false
+           (pegged? three-rows-board 4)))))
