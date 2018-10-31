@@ -176,3 +176,22 @@
             3 {:pegged true},
             5 {:pegged true}}
            (place-peg three-rows-board 6)))))
+
+(deftest move-peg-test
+  (testing "return p1 is false and p2 is true"
+    (is (= {:rows 3,
+            1 {:pegged false, :connections {4 2, 6 3}},
+            4 {:connections {1 2, 6 5}, :pegged true},
+            6 {:connections {1 3, 4 5}, :pegged false},
+            2 {:pegged true},
+            3 {:pegged true},
+            5 {:pegged true}}
+           (move-peg three-rows-board 1 4)))
+    (is (= {:rows 3,
+            1 {:pegged true, :connections {4 2, 6 3}},
+            4 {:connections {1 2, 6 5}, :pegged false},
+            6 {:connections {1 3, 4 5}, :pegged true},
+            2 {:pegged false},
+            3 {:pegged true},
+            5 {:pegged true}}
+           (move-peg three-rows-board 2 6)))))
