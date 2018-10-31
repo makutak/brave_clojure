@@ -92,6 +92,10 @@
   [board pos]
   (assoc-in board [pos :pegged] false))
 
+(defn place-peg
+  "Put the peg in the board at given position"
+  [board pos]
+  (assoc-in board [pos :pegged] true))
 
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."

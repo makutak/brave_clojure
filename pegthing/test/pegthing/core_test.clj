@@ -148,7 +148,7 @@
            (pegged? three-rows-board 4)))))
 
 (deftest remove-peg-test
-  (testing "return false given positon connections values"
+  (testing "return false given positon connections value"
     (is (= {:rows 3,
             1 {:pegged true, :connections {4 2, 6 3}},
             4 {:connections {1 2, 6 5}, :pegged false},
@@ -157,3 +157,22 @@
             3 {:pegged true},
             5 {:pegged false}})
         (remove-peg three-rows-board 5))))
+
+(deftest place-peg-test
+  (testing "return true given posiiton connections value"
+    (is (= {:rows 3,
+            1 {:pegged true, :connections {4 2, 6 3}},
+            4 {:connections {1 2, 6 5}, :pegged true},
+            6 {:connections {1 3, 4 5}, :pegged false},
+            2 {:pegged true},
+            3 {:pegged true},
+            5 {:pegged true}}
+           (place-peg three-rows-board 4)))
+    (is (= {:rows 3,
+            1 {:pegged true, :connections {4 2, 6 3}},
+            4 {:connections {1 2, 6 5}, :pegged false},
+            6 {:connections {1 3, 4 5}, :pegged true},
+            2 {:pegged true},
+            3 {:pegged true},
+            5 {:pegged true}}
+           (place-peg three-rows-board 6)))))
