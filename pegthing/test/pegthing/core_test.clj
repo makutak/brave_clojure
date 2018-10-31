@@ -146,3 +146,14 @@
   (testing "return false if the position does not have a peg"
     (is (= false
            (pegged? three-rows-board 4)))))
+
+(deftest remove-peg-test
+  (testing "return false given positon connections values"
+    (is (= {:rows 3,
+            1 {:pegged true, :connections {4 2, 6 3}},
+            4 {:connections {1 2, 6 5}, :pegged false},
+            6 {:connections {1 3, 4 5}, :pegged false},
+            2 {:pegged true},
+            3 {:pegged true},
+            5 {:pegged false}})
+        (remove-peg three-rows-board 5))))
