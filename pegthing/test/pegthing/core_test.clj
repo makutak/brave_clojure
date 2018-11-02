@@ -195,3 +195,14 @@
             3 {:pegged true},
             5 {:pegged true}}
            (move-peg three-rows-board 2 6)))))
+
+(def my-board (assoc-in (new-board 5) [4 :pegged] false))
+
+(deftest valid-moves-test
+  (testing "if 4 position is empty"
+    (testing "1 positoin can move 4 position "
+      (is (= {4 2}
+             (valid-moves my-board 1))))
+    (testing "2 position ca not move 4 position"
+      (is (= {}
+             (valid-moves my-board 2))))))

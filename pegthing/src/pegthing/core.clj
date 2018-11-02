@@ -102,6 +102,20 @@
   [board p1 p2]
   (place-peg (remove-peg board p1) p2))
 
+(defn valid-moves
+  "Return a map of all valid moves for pos,
+  where the key is the destination and the value is jumped position"
+  [board pos]
+  (into {}
+        (filter (fn [[destination jumped]]
+                  ;; destination must not has peg
+                  ;; jumped must has peg
+                  (and (not (pegged? board destination))
+                       (pegged? board jumped)))
+                (get-in board [pos :connections]))))
+
+
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
