@@ -208,10 +208,10 @@
              (valid-moves my-board 2))))))
 
 (deftest valid-moves?-test
-  (testing "return 2 position if the moves is valid"
+  (testing "return 2 position if the move is valid"
     (is (= 2
            (valid-moves? my-board 1 4))))
-  (testing "return 5 position if the moves is valid"
+  (testing "return 5 position if the move is valid"
     (is (= 5
            (valid-moves? my-board 6 4))))
   (testing "return nil if the moves is not valid"
