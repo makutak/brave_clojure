@@ -119,6 +119,12 @@
   [board p1 p2]
   (get (valid-moves board p1) p2))
 
+(defn make-move
+  "Move peg from p1 to p2, removing jumped peg"
+  [board p1 p2]
+  (if-let [jumped (valid-moves? board p1 p2)]
+    (move-peg (remove-peg board jumped) p1 p2)))
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]

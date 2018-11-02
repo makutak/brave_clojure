@@ -217,3 +217,18 @@
   (testing "return nil if the moves is not valid"
     (is (= nil
            (valid-moves? my-board 1 6)))))
+
+(def make-move-expected
+  (assoc-in
+   (assoc-in
+    (assoc-in my-board [4 :pegged] true)
+    [2 :pegged] false)
+   [1 :pegged] false))
+
+(deftest make-move-test
+  (testing "return  new board that 2 position is false and 4 position is true"
+    (is (= make-move-expected
+           (make-move my-board 1 4))))
+  (testing "return nil if make-move is not valid"
+    (is (= nil
+           (make-move my-board 8 4)))))
