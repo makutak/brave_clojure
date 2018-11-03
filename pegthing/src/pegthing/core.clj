@@ -125,6 +125,13 @@
   (if-let [jumped (valid-moves? board p1 p2)]
     (move-peg (remove-peg board jumped) p1 p2)))
 
+(defn can-move?
+  "Do any of the pegged positions have valid moves?"
+  [board]
+  (some (comp not-empty (partial valid-moves board))
+        (map first (filter #(get (second %) :pegged) board))))
+
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
