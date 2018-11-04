@@ -131,7 +131,6 @@
   (some (comp not-empty (partial valid-moves board))
         (map first (filter #(get (second %) :pegged) board))))
 
-
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
