@@ -130,6 +130,7 @@
   [board]
   (some (comp not-empty (partial valid-moves board))
         (map first (filter #(get (second %) :pegged) board))))
+;; :pegged が true の position を 抽出し、position の seq を作っている。
 
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
