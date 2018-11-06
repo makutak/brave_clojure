@@ -232,3 +232,23 @@
   (testing "return nil if make-move is not valid"
     (is (= nil
            (make-move my-board 8 4)))))
+
+(def all-false-board (reduce (fn [new-map [k v]]
+                               (assoc new-map
+                                      k
+                                      (if (get v :pegged)
+                                        (assoc v :pegged false)
+                                        v)))
+                             {}
+                             my-board))
+
+(deftest can-move?-test
+  (testing "return nil if all pos is false"
+    (is (= nil
+           (can-move? all-false-board))))
+  (testing "return map if moves is possible"
+    (is (not (= nil
+                (can-move? my-board)))))
+  (testing "return nil if all pos is true"
+    (is (= nil
+           (can-move? (new-board 100))))))
