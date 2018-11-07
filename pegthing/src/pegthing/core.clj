@@ -139,6 +139,8 @@
 (def alpha-start 97)
 (def alpha-end 123)
 (def letters (map (comp str char) (range alpha-start alpha-end)))
+(def pos-chasr 3)
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
