@@ -136,6 +136,9 @@
 ;; 今まで見てきた fn や #() と同じ役割となっている。
 ;; some: "Returns the first logical true value"
 
+(def alpha-start 97)
+(def alpha-end 123)
+(def letters (map (comp str char) (range alpha-start alpha-end)))
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
