@@ -134,7 +134,7 @@
 ;; そのseqの要素を使い、valid-movesを、boardに対して実行している。
 ;; 要は、(comp not-empty (partial valid-moves board)) の部分が、
 ;; 今まで見てきた fn や #() と同じ役割となっている。
-
+;; some: "Returns the first logical true value"
 
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
