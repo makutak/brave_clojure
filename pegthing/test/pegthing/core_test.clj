@@ -252,3 +252,11 @@
   (testing "return nil if all pos is true"
     (is (= nil
            (can-move? (new-board 100))))))
+
+(deftest render-pos-test
+  (testing "return alphabet and 0 if given pos has peg"
+    (is (= "a0"
+           (render-pos my-board 1))))
+  (testing "return alphabet and - if given pos does'n have peg"
+    (is (= "d-"
+           (render-pos my-board 4)))))

@@ -141,6 +141,13 @@
 (def letters (map (comp str char) (range alpha-start alpha-end)))
 (def pos-chasr 3)
 
+(defn render-pos
+  [board pos]
+  (str (nth letters (dec pos))
+       (if (get-in board [pos :pegged])
+         "0"
+         "-")))
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
