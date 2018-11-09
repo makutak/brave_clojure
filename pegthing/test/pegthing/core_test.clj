@@ -262,18 +262,18 @@
            (render-pos my-board 4)))))
 
 (deftest row-positions-test
-  (testing "2nd rows"
+  (testing "2nd row"
     (is (= '(2 3)
            (row-positions 2))))
-  (testing "5th rows"
+  (testing "5th row"
     (is (= '(11 12 13 14 15)
            (row-positions 5)))))
 
 (deftest row-padding-test
-  (testing "2nd rows of 5 rows"
+  (testing "2nd row of 5 rows"
     (is (= "     "
            (row-padding 2 5))))
-  (testing "3rd rows of  6 rows"
+  (testing "3rd row of  6 rows"
     (is (= "     "
            (row-padding 3 6))))
   (testing "always last rows don' have spaces"
