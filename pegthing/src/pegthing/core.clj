@@ -166,6 +166,11 @@
        (clojure.string/join " " (map (partial render-pos board)
                                      (row-positions row-num)))))
 
+(defn print-board
+  [board]
+  (doseq [row-num (range 1 (inc (:rows board)))]
+    (println (render-row board row-num))))
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
