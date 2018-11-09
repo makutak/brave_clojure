@@ -281,3 +281,11 @@
            (row-padding 10 10)))
     (is (= ""
            (row-padding 100 100)))))
+
+(deftest render-row-test
+  (testing "first row of 5 rows"
+    (is (= "      a0"
+           (render-row my-board 1))))
+  (testing "last row of 5 rows"
+    (is (= "k0 l0 m0 n0 o0"
+           (render-row my-board 5)))))

@@ -159,7 +159,13 @@
   (let [pad-length (/ (* (- rows row-num) pos-char) 2)]
     (apply str (take pad-length (repeat " ")))))
 
-(defn )
+
+(defn render-row
+  [board row-num]
+  (str (row-padding row-num (:rows board))
+       (clojure.string/join " " (map (partial render-pos board)
+                                     (row-positions row-num)))))
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
