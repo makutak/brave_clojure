@@ -260,3 +260,11 @@
   (testing "return alphabet and - if given pos does'n have peg"
     (is (= "d-"
            (render-pos my-board 4)))))
+
+(deftest row-positions-test
+  (testing "2nd rows"
+    (is (= '(2 3)
+           (row-positions 2))))
+  (testing "5th rows"
+    (is (= '(11 12 13 14 15)
+           (row-positions 5)))))

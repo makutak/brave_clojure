@@ -148,6 +148,12 @@
          "0"
          "-")))
 
+(defn row-positions
+  "Return all positions ins the given row"
+  [row-num]
+  (range (inc (or (row-tri (dec row-num)) 0))
+         (inc (row-tri row-num))))
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
