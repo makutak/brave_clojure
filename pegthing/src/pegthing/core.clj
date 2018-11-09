@@ -154,6 +154,12 @@
   (range (inc (or (row-tri (dec row-num)) 0))
          (inc (row-tri row-num))))
 
+(defn row-padding
+  [row-num rows]
+  (let [pad-length (/ (* (- rows row-num) pos-char) 2)]
+    (apply str (take pad-length (repeat " ")))))
+
+(defn )
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]

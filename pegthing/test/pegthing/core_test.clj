@@ -268,3 +268,16 @@
   (testing "5th rows"
     (is (= '(11 12 13 14 15)
            (row-positions 5)))))
+
+(deftest row-padding-test
+  (testing "2nd rows of 5 rows"
+    (is (= "     "
+           (row-padding 2 5))))
+  (testing "3rd rows of  6 rows"
+    (is (= "     "
+           (row-padding 3 6))))
+  (testing "always last rows don' have spaces"
+    (is (= ""
+           (row-padding 10 10)))
+    (is (= ""
+           (row-padding 100 100)))))
