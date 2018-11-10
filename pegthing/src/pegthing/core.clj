@@ -139,7 +139,7 @@
 (def alpha-start 97)
 (def alpha-end 123)
 (def letters (map (comp str char) (range alpha-start alpha-end)))
-(def pos-chasr 3)
+(def pos-char 3)
 
 (defn render-pos
   [board pos]
