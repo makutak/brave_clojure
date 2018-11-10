@@ -289,3 +289,8 @@
   (testing "last row of 5 rows"
     (is (= "k0 l0 m0 n0 o0"
            (render-row my-board 5)))))
+
+(deftest letters->pos-test
+  (testing "alphabet converts correspoindig posiiton number"
+    (is (= (range 1 27)
+           (map #(letters->pos %) letters)))))
