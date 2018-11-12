@@ -1,7 +1,7 @@
 (ns pegthing.core
   (require [clojure.set :as set])
-  ;; allows you to run the program from the command line
   (:gen-class))
+;; allows you to run the program from the command line
 
 ;;allows functions to refer to those names before they're define.
 (declare successful-move prompt-move game-over query-rows)
