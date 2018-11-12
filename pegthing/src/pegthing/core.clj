@@ -177,6 +177,17 @@
   (inc (- (int (first letter))
           alpha-start)))
 
+(defn get-input
+  "Waits for user to enter the text and hit enter, then clean the input"
+  ([]
+   (get-input nil))
+  ([default]
+   (let [input (clojure.string/trim (read-line))]
+     (if (empty? input)
+       default
+       (clojure.string/lower-case input)))))
+
+
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
 ;;   [& args]
