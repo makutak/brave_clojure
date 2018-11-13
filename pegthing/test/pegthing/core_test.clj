@@ -293,4 +293,4 @@
 (deftest letter->pos-test
   (testing "alphabet converts correspoindig posiiton number"
     (is (= (range 1 27)
-           (map #(letter->pos %) letters)))))
+           (map letter->pos letters)))))
