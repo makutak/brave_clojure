@@ -294,3 +294,13 @@
   (testing "alphabet converts correspoindig posiiton number"
     (is (= (range 1 27)
            (map letter->pos letters)))))
+
+(deftest character-as-string-test
+  (testing "take in string and return a collecetion of letters"
+    (is (= letters
+           (character-as-string (apply str letters))))
+    (is (= (map clojure.string/upper-case letters)
+           (character-as-string (clojure.string/upper-case (apply str letters))))))
+  (testing "non-alphabet input discarded"
+    (is (= nil
+           (character-as-string (apply str (range 1 100)))))))

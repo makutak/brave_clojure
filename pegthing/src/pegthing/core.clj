@@ -187,6 +187,9 @@
        default
        (clojure.string/lower-case input)))))
 
+(defn character-as-string
+  [string]
+  (re-seq #"[a-zA-Z]" string))
 
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
