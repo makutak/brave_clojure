@@ -4,7 +4,7 @@
 ;; allows you to run the program from the command line
 
 ;;allows functions to refer to those names before they're define.
-(declare successful-move prompt-move game-over query-rows)
+(declare successful-move prompt-move game-over query-rows user-entered-valid-move user-entered-invalid-move)
 
 (defn tri*
   "Generates lazy sequence of triaugnler number."
