@@ -220,6 +220,34 @@
     (prompt-move board)
     (game-over board)))
 
+(defn game-over
+  "Annouce the game is over and prompt to play again"
+  [board]
+  (let [remmaiing-pegs (count (filter :pegged (vals board)))]
+    (println "Game over! You had " remmaiing-pegs "pegs left:")
+    (print-board board)
+    (println "Play again? y/n [y]")
+    (let [input (get-input "y")]
+      (if (= input "y")
+        (prompt-rows)
+        (do
+          (println "Bye!")
+          (System/exit 0))))))
+
+(defn prompt-empty-pegs
+  [board]
+  (println "Here's your board:")
+  (print-board board)
+  (println "Remove which peg? [e]")
+  (prompt-move (remove-peg board (letter->pos (get-input "e")))))
+
+
+(defn prompt-rows
+  []
+  (println "How many rows? [5]")
+  (let [rows (Integer. (get-input 5))
+        board (new-board rows)]
+    (prompt-empty-pegs board)))
 
 ;; (defn -main
 ;;   "I don't do a whole lot ... yet."
