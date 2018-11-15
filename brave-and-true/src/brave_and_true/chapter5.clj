@@ -58,3 +58,17 @@
 
 ;;同じ引数で呼ばれるときは、1秒待たずに実行される
 (def memo-sleepy-identity (memoize sleepy-identity))
+
+;; Exercises
+;; 1
+(defn attr
+  [value]
+  (get-in character  [:attribute value]))
+
+;; 2 Implement the comp function.
+
+;; 3 Implement the assoc-in function.
+
+;; 4 Look up and use the update-in function.
+
+;; 5 Implement update-in.
