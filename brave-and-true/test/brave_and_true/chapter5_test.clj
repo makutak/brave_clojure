@@ -109,4 +109,7 @@
     (is (= (:strength (:attribute character))
            (attr :strength)))
     (is (= (:dexterity (:attribute character))
-           (attr :dexterity)))))
+           (attr :dexterity))))
+  (testing "return null if passed key is not exist"
+    (is (= nil
+           (attr :hoge)))))
