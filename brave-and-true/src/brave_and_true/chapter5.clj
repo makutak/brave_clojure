@@ -72,11 +72,9 @@
   ([f g]
    (fn
      ([] (f (g)))
-     ([x] (f (g x)))
-     ([x y] (f (g x y)))
-     ([x y & args] (f (apply g x y args)))))
+     ([& args] (f (apply g args)))))
   ([f g & fs]
-   (reduce comp (list* f g fs))))
+   (reduce my-comp (list* f g fs))))
 
 
 ;; 3 Implement the assoc-in function.
