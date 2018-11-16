@@ -129,3 +129,13 @@
              (my-assoc-in user [:age] 19)))
       (is (= (assoc-in user [:attribute :faborite-food] "humberger")
              (my-assoc-in user [:attribute :faborite-food] "humberger"))))))
+
+(deftest update-in-use-test
+  (testing "return update value"
+    (let [expected {:name "yurina kumai"
+                    :birthday "1993-08-03"
+                    :attribute {:group "Berryz Kobo"
+                                :height 183
+                                :blood-type "B"}}]
+      (is (= expected
+             (update-in kumai [:attribute :height] + 7))))))

@@ -84,5 +84,11 @@
     (assoc m k v)))
 
 ;; 4 Look up and use the update-in function.
+(def kumai {:name "yurina kumai"
+            :birthday "1993-08-03"
+            :attribute {:group "Berryz Kobo"
+                        :height 176
+                        :blood-type "B"}})
+
 
 ;; 5 Implement update-in.
