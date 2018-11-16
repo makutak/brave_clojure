@@ -62,8 +62,8 @@
 ;; Exercises
 ;; 1
 (defn attr
-  [value]
-  (get-in character  [:attribute value]))
+  [key]
+  (get-in character  [:attribute key]))
 
 ;; 2 Implement the comp function.
 
