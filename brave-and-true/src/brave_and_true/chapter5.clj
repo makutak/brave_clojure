@@ -92,3 +92,8 @@
 
 
 ;; 5 Implement update-in.
+(defn my-update-in
+  [m [k & ks] f & args]
+  (if ks
+    (assoc m k (my-update-in m ks f args))
+    (assoc m k (apply f (get m k) args))))

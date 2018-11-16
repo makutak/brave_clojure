@@ -139,3 +139,16 @@
                                 :blood-type "B"}}]
       (is (= expected
              (update-in kumai [:attribute :height] + 7))))))
+
+(deftest my-update-in-test
+  (testing "return same value using update-in"
+    (let [u {:name "Paul" :age 20}]
+      (is (= (update-in u [:age] + 10)
+             (my-update-in u [:age] + 10))))
+    (let [expected {:name "yurina kumai"
+                    :birthday "1993-08-03"
+                    :attribute {:group "Berryz Kobo"
+                                :height 183
+                                :blood-type "B"}}]
+      (is (= (update-in kumai [:attribute :height] + 7)
+             (my-update-in kumai [:attribute :height] + 7))))))
