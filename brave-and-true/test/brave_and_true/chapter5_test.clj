@@ -115,7 +115,7 @@
            (attr :hoge)))))
 
 (deftest my-comp-test
-  (testing "return value is same using comp"
+  (testing "return value is same value using comp"
     (is (= ((comp inc inc) 1)
            ((my-comp inc inc) 1)))
     (is (= (map (comp str #(* 2 %) inc) (range 1 11))
