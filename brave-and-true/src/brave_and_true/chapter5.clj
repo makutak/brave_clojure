@@ -76,8 +76,12 @@
   ([f g & fs]
    (reduce my-comp (list* f g fs))))
 
-
 ;; 3 Implement the assoc-in function.
+(defn my-assoc-in
+  [m [k & ks] v]
+  (if ks
+    (assoc m k (my-assoc-in (get m k) ks v))
+    (assoc m k v)))
 
 ;; 4 Look up and use the update-in function.
 

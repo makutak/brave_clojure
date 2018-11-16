@@ -120,3 +120,12 @@
            ((my-comp inc inc) 1)))
     (is (= (map (comp str #(* 2 %) inc) (range 1 11))
            (map (my-comp str #(* 2 %) inc) (range 1 11))))))
+
+(deftest my-assoc-in-test
+  (testing "return value is same value using assoc-in"
+    (let [user {:name "John" :age 18 :attribute {:birthday "2000-10-10"
+                                                 :faborite-food "sushi"}}]
+      (is (= (assoc-in user [:age] 19)
+             (my-assoc-in user [:age] 19)))
+      (is (= (assoc-in user [:attribute :faborite-food] "humberger")
+             (my-assoc-in user [:attribute :faborite-food] "humberger"))))))
