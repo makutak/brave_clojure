@@ -101,3 +101,12 @@
   (testing "return the given value immediately"
     (is (= "hoge"
            (memo-sleepy-identity "hoge")))))
+
+(deftest attr-test
+  (testing "return passed key's value"
+    (is (= (:intelligence (:attribute character))
+           (attr :intelligence)))
+    (is (= (:strength (:attribute character))
+           (attr :strength)))
+    (is (= (:dexterity (:attribute character))
+           (attr :dexterity)))))
