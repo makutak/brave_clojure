@@ -113,3 +113,10 @@
   (testing "return null if passed key is not exist"
     (is (= nil
            (attr :hoge)))))
+
+(deftest my-comp-test
+  (testing "return value is same using comp"
+    (is (= ((comp inc inc) 1)
+           ((my-comp inc inc) 1)))
+    (is (= (map (comp str #(* 2 %) inc) (range 1 11))
+           (map (my-comp str #(* 2 %) inc) (range 1 11))))))

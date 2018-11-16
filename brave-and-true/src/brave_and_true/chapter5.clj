@@ -66,6 +66,18 @@
   (get-in character  [:attribute key]))
 
 ;; 2 Implement the comp function.
+(defn my-comp
+  ([] identity)
+  ([f] f)
+  ([f g]
+   (fn
+     ([] (f (g)))
+     ([x] (f (g x)))
+     ([x y] (f (g x y)))
+     ([x y & args] (f (apply g x y args)))))
+  ([f g & fs]
+   (reduce comp (list* f g fs))))
+
 
 ;; 3 Implement the assoc-in function.
 
