@@ -24,4 +24,4 @@
 
 (defn -main
   [& args]
-  (println (points heists)))
+  (println (svg/points heists)))
