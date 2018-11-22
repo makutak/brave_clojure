@@ -1,9 +1,5 @@
 (ns the-divine-cheese-code.core)
-;; Ensure that the SvG code is evaluated
-(require 'the-divine-cheese-code.visualization.svg)
-;; Refer the namespace so that you don't have to use the
-;; fully qualified name to reference svg function
-(refer 'the-divine-cheese-code.visualization.svg)
+(use '[the-divine-cheese-code.visualization.svg :as svg :only [points]])
 
 (def heists [{:location "Cologne, Germany"
               :cheese-name "Archbishop Hildebold's Cheese Pretzel"
