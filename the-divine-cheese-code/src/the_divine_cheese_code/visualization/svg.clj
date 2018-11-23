@@ -1,4 +1,5 @@
-(ns the-divine-cheese-code.visualization.svg)
+(ns the-divine-cheese-code.visualization.svg
+  (:require [clojure.string :as s]))
 
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
