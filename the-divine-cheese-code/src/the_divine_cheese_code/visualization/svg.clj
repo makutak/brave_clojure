@@ -2,6 +2,10 @@
   (:require [clojure.string :as s])
   (:refer-clojure :exclude [min max]))
 
+(defn comparator-over-maps
+  [comparison-fn ks]
+  ks)
+
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
   [latlng]
