@@ -4,7 +4,10 @@
 
 (defn comparator-over-maps
   [comparison-fn ks]
-  ks)
+  (fn [maps]
+    (zipmap ks
+            (map (fn [k] (apply comparison-fn (map k maps)))
+                 ks))))
 
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
