@@ -1,6 +1,7 @@
 (ns the-divine-cheese-code.core-test
   (:require [clojure.test :refer :all]
-            [the-divine-cheese-code.visualization.svg :refer :all]))
+            [the-divine-cheese-code.visualization.svg :refer :all])
+  (:refer-clojure :exclude [min max]))
 
 (deftest latlng->point-test
   (testing "convert map to commpa-separated string"
