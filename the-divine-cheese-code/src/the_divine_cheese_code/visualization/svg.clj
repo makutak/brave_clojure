@@ -12,6 +12,11 @@
 (def min (comparator-over-maps clojure.core/min [:lat :lng]))
 (def max (comparator-over-maps clojure.core/max [:lat :lng]))
 
+(defn translate-to-00
+  [locations]
+  (let [min-record (min locations)]
+    (map #(merge-with - % min-record) locations)))
+
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
   [latlng]
