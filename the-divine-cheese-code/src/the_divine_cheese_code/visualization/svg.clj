@@ -17,6 +17,13 @@
   (let [minrecord (min locations)]
     (map #(merge-with - % minrecord) locations)))
 
+(defn scale
+  [width height locations]
+  (let [maxrecord (max locations)
+        ratio {:lat (/ height (:lat maxrecord))
+               :lng (/ width  (:lng maxrecord))}]
+    (map #(merge-with * % maxrecord) locations)))
+
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
   [latlng]

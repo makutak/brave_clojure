@@ -29,3 +29,8 @@
   (testing "return new map which value is subtracted"
     (is (= [{:lat 0 :lng 0}]
            (translate-to-00 [{:lat 10 :lng 10}])))))
+
+(deftest scale-test
+  (testing "return new map which value is multiplied"
+    (is (= [{:lat 100 :lng 100}]
+           (scale 1 1 [{:lat 10 :lng 10}])))))
