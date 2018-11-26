@@ -9,6 +9,9 @@
             (map (fn [k] (apply comparison-fn (map k maps)))
                  ks))))
 
+(def min (comparator-over-maps clojure.core/min [:lat :lng]))
+(def max (comparator-over-maps clojure.core/max [:lat :lng]))
+
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
   [latlng]
