@@ -25,11 +25,7 @@
     (is (= {:lat 100 :lng 1024}
            ((comparator-over-maps clojure.core/max [:lat :lng]) testdatas)))))
 
-(def translate-to-00-expected [{:lat 90 :lng 900}
-                               {:lat 0 :lng 0}
-                               {:lat 81 :lng 924 }])
-
 (deftest translate-to-00-test
   (testing "return new map which value is subtracted"
-    (is (= translate-to-00-expected
-           (translate-to-00 testdatas)))))
+    (is (= [{:lat 0 :lng 0}]
+           (translate-to-00 [{:lat 10 :lng 10}])))))
