@@ -14,8 +14,8 @@
 
 (defn translate-to-00
   [locations]
-  (let [min-record (min locations)]
-    (map #(merge-with - % min-record) locations)))
+  (let [minrecord (min locations)]
+    (map #(merge-with - % minrecord) locations)))
 
 (defn latlng->point
   "Converting lat/lng map to commpa-separated string"
