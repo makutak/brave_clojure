@@ -32,3 +32,7 @@
 (defn points
   [locations]
   (clojure.string/join " " (map latlng->point locations)))
+
+(defn line
+  [points]
+  (str "<polyline points=\"" points " \">"))
