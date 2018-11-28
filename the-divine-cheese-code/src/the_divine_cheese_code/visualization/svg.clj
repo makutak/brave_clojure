@@ -36,3 +36,11 @@
 (defn line
   [points]
   (str "<polyline points=\"" points " \">"))
+
+(defn transform
+  "Just chains other function"
+  [width height locations]
+  (->> locations
+       translate-to-00
+       (scale width height)))
+;; memo: (scale width height (translate-to-00 locatoins)) と同じ意味
