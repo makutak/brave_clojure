@@ -44,3 +44,18 @@
        translate-to-00
        (scale width height)))
 ;; memo: (scale width height (translate-to-00 locatoins)) と同じ意味
+
+(defn xml
+  "SVG 'template', which also flips the coodinate system"
+  [width height locations]
+  (str "<svg height = \"" height "\" width = \"" width "\" >"
+       ;; These two <g> tags change coodinate system so that
+       ;; 0.0 in  the lower-left corner, instead of SVG's default
+       ;; upper-left corner
+       "<g transform = \"translate(0," height ")\" > "
+       "<g transform = \"rotate(-90)\" > "
+       (-> (transform width height locations)
+           points
+           line)
+       "</g></g>"
+       "</svg>"))
