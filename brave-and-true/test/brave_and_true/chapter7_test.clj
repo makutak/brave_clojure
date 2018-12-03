@@ -9,3 +9,14 @@
            (backwards ("backwards" "am " "i " str))))
     (is (= ["bar" "foo"]
            (backwards ("foo" "bar" vector))))))
+
+(deftest eval-test
+  (testing "eval"
+    (is (= 3
+           (eval addition-list)))
+    (is (= 100
+           (eval (list * 10 10))))
+    (is (= 10
+           (eval (list / 100 10))))
+    (is (= ["foo" "bar"]
+           (eval (list vector "foo" "bar"))))))
