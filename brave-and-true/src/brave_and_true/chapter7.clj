@@ -6,3 +6,5 @@
   (reverse form))
 
 (def addition-list (list + 1 2))
+
+(eval (list 'def 'lucky-number (concat addition-list [10])))

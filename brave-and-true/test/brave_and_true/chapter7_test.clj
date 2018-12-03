@@ -19,4 +19,8 @@
     (is (= 10
            (eval (list / 100 10))))
     (is (= ["foo" "bar"]
-           (eval (list vector "foo" "bar"))))))
+           (eval (list vector "foo" "bar"))))
+    (is (= 13
+           (eval (concat addition-list [10]))))
+    (is (= 13
+           lucky-number))))
