@@ -33,3 +33,10 @@
               (list (second infix)
                     (first infix)
                     (last infix))))))))
+
+(deftest ignore-last-operand-test
+  (testing "passing fun call and evaludated value expect last item"
+    (is (= 3
+           (ignore-last-operand (+ 1 2 3))))
+    (is (= 10
+           (ignore-last-operand (+ 3 7 (println "hello world")))))))
