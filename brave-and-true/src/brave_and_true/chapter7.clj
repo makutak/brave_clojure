@@ -12,3 +12,9 @@
 (defmacro ignore-last-operand
   [fun-call]
   (butlast fun-call))
+
+(defmacro infix
+  [infixed]
+  (list (second infixed)
+        (first infixed)
+        (last infixed)))

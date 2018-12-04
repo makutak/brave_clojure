@@ -47,3 +47,14 @@
            (macroexpand '(ignore-last-operand (+ 1 1 1)))))
     (is (= '(+ 3 7)
            (macroexpand '(ignore-last-operand (+ 3 7 (println "hello world"))))))))
+
+(deftest infix-macro-test
+  (testing "be able to calculate infix notation"
+    (is (= 10
+           (infix (3 + 7))))
+    (is (= -99
+           (infix (1 - 100))))
+    (is (= 100
+           (infix (10 * 10))))
+    (is (= 5
+           (infix (25 / 5))))))
