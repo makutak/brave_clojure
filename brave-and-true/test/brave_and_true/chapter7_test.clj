@@ -24,3 +24,12 @@
            (eval (concat addition-list [10]))))
     (is (= 13
            lucky-number))))
+
+(deftest infix-test
+  (testing "infix"
+    (is (= 2
+           (eval
+            (let [infix (read-string "(1 + 1)")]
+              (list (second infix)
+                    (first infix)
+                    (last infix))))))))
