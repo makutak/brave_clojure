@@ -40,3 +40,10 @@
            (ignore-last-operand (+ 1 2 3))))
     (is (= 10
            (ignore-last-operand (+ 3 7 (println "hello world")))))))
+
+(deftest macroexpand-test
+  (testing "using macroexpand"
+    (is (= '(+ 1 1)
+           (macroexpand '(ignore-last-operand (+ 1 1 1)))))
+    (is (= '(+ 3 7)
+           (macroexpand '(ignore-last-operand (+ 3 7 (println "hello world"))))))))
