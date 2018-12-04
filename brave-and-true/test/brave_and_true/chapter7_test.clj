@@ -69,12 +69,8 @@
                  read-string))))))
 
 (deftest exercise-1-test
-  (testing "use list function and prints your first name and your favorite sci-fi movie"
+  (testing "print my name and favorite sci-fi movie"
     (is (= '("kouno" "star wars")
-           (list "kouno" "star wars"))))
-  (testing "use quoting and prints your first name and your favorite sci-fi movie"
+           (eval (read-string "(list \"kouno\" \"star wars\"))"))))
     (is (= '("kouno" "star wars")
-           '("kouno" "star wars"))))
-  (testing "use quoting and prints your first name and your favorite sci-fi movie"
-    (is (= '("kouno" "star wars")
-           (eval (read-string "(list \"kouno\" \"star wars\")"))))))
+           (eval (read-string "'(\"kouno\" \"star wars\"))"))))))

@@ -19,3 +19,6 @@
   (list (second infixed)
         (first infixed)
         (last infixed)))
+
+;; Exercises
+;; 1 reference to test
