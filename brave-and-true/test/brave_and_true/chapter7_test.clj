@@ -58,3 +58,12 @@
            (infix (10 * 10))))
     (is (= 5
            (infix (25 / 5))))))
+
+(deftest arrow-macro-test
+  (testing "function is same"
+    (is (= '(read-string (slurp (clojure.java.io/resource path)))
+           (macroexpand
+            '(-> path
+                 clojure.java.io/resource
+                 slurp
+                 read-string))))))
