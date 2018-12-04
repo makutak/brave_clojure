@@ -67,3 +67,14 @@
                  clojure.java.io/resource
                  slurp
                  read-string))))))
+
+(deftest exercise-1-test
+  (testing "use list function and prints your first name and your favorite sci-fi movie"
+    (is (= '("kouno" "star wars")
+           (list "kouno" "star wars"))))
+  (testing "use quoting and prints your first name and your favorite sci-fi movie"
+    (is (= '("kouno" "star wars")
+           '("kouno" "star wars"))))
+  (testing "use quoting and prints your first name and your favorite sci-fi movie"
+    (is (= '("kouno" "star wars")
+           (eval (read-string "(list \"kouno\" \"star wars\")"))))))
