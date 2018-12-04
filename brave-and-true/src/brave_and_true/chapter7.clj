@@ -9,6 +9,7 @@
 
 (eval (list 'def 'lucky-number (concat addition-list [10])))
 
+;; macroは reader -> macroexpand -> evaluator という順で実行される
 (defmacro ignore-last-operand
   [fun-call]
   (butlast fun-call))
