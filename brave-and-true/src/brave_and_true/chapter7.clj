@@ -24,10 +24,19 @@
 ;; 1 reference to test
 
 ;; 2
-(defmacro calc-infix
+(def priority-ops '(* /))
+
+(defn calc-infix
   [infixed]
-  (cond
-    (empty? infixed) 0
-    :else (list (second infixed)
-                (first infixed)
-                (first (rest (rest infixed))))))
+  (eval (cond
+          (= (count infixed) 3) (list (second infixed)
+                                      (first infixed)
+                                      (last infixed))
+          :else
+          (let [rev (reverse infixed)
+                operand (first rev)
+                operator (second rev)
+                rest-expr (nthrest rev 2)]
+            (if (some #(= operator %) priority-ops)
+              (list operator operand (calc-infix rest-expr))
+              (list operator  (calc-infix rest-expr) operand))))))
