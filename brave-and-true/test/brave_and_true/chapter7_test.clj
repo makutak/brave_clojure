@@ -74,3 +74,8 @@
            (eval (read-string "(list \"kouno\" \"star wars\"))"))))
     (is (= '("kouno" "star wars")
            (eval (read-string "'(\"kouno\" \"star wars\"))"))))))
+
+(deftest calc-infix-test
+  (testing "calculate infix"
+    (is (= 8
+           (calc-infix (1 + 3 * 4 - 5))))))
