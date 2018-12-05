@@ -22,3 +22,12 @@
 
 ;; Exercises
 ;; 1 reference to test
+
+;; 2
+(defmacro calc-infix
+  [infixed]
+  (cond
+    (empty? infixed) 0
+    :else (list (second infixed)
+                (first infixed)
+                (first (rest (rest infixed))))))
