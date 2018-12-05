@@ -32,11 +32,10 @@
           (= (count infixed) 3) (list (second infixed)
                                       (first infixed)
                                       (last infixed))
-          :else
-          (let [rev (reverse infixed)
-                operand (first rev)
-                operator (second rev)
-                rest-expr (nthrest rev 2)]
-            (if (some #(= operator %) priority-ops)
-              (list operator operand (calc-infix rest-expr))
-              (list operator  (calc-infix rest-expr) operand))))))
+          :else (let [rev (reverse infixed)
+                      operand (first rev)
+                      operator (second rev)
+                      rest-expr (nthrest rev 2)]
+                  (if (some #(= operator %) priority-ops)
+                    (list operator operand (calc-infix rest-expr))
+                    (list operator  (calc-infix rest-expr) operand))))))
