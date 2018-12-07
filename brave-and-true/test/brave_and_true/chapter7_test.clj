@@ -78,6 +78,8 @@
 (deftest calc-infix-test
   (testing "calculate infix"
     (is (= 8
-           (calc-infix '(1 + 3 * 4 - 5))))
+           (int (calc-infix '(1 + 3 * 4 - 5)))))
     (is (= 85
-           (calc-infix '(38 + 48 - 2 / 2))))))
+           (int (calc-infix '(38 + 48 - 2 / 2)))))
+    (is (= -29
+           (int (calc-infix '(1 * 3 - 8 * 4)))))))
