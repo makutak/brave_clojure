@@ -39,3 +39,15 @@
                   (if (some #(= operator %) priority-ops)
                     (list operator operand (calc-infix rest-expr))
                     (list operator  (calc-infix rest-expr) operand))))))
+
+(defn parse
+  [infixed]
+  (let [ops '()
+        values '()]
+    (doseq [i infixed]
+      (println (number? i))
+      (cond
+        (number? i) (println "number" i)
+        (ifn? i) (println "operator" i)))
+    (println "ops" ops)
+    (println "values" values)))
