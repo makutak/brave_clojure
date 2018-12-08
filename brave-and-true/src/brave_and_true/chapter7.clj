@@ -40,14 +40,21 @@
                     (list operator operand (calc-infix rest-expr))
                     (list operator  (calc-infix rest-expr) operand))))))
 
+(def preorities '(* /))
+(def normals '(+ -))
+
 (defn parse
   [infixed]
-  (let [ops '()
-        values '()]
-    (doseq [i infixed]
-      (println (number? i))
-      (cond
-        (number? i) (println "number" i)
-        (ifn? i) (println "operator" i)))
-    (println "ops" ops)
-    (println "values" values)))
+  (loop [tokens infixed
+         ops '()
+         values '()]
+    (cond
+      (empty? tokens) (do
+                        (println "ops" ops)
+                        (println "values" values))
+      (number? (first tokens)) (recur (rest tokens)
+                                      ops
+                                      (cons (first tokens) values))
+      (ifn? (first tokens)) (recur (rest tokens)
+                                   (cons (first tokens) ops)
+                                   values))))
