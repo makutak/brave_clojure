@@ -43,29 +43,6 @@
 (def preorities '(* /))
 (def normals '(+ -))
 
-(defn parse
-  [infixed]
-  (loop [tokens infixed
-         ops '()
-         values '()]
-    (do
-      (println " ")
-      (println "tokens" tokens)
-      (println "ops" ops)
-      (println "values" values))
-    (cond
-      (empty? tokens) (first values)
-      (number? (first tokens)) (if (calc? ops values)
-                                 (recur (cons (calc ops (first tokens) values) (rest tokens))
-                                        (rest ops)
-                                        (rest values))
-                                 (recur (rest tokens)
-                                        ops
-                                        (cons (first tokens) values)))
-      (ifn? (first tokens)) (recur (rest tokens)
-                                   (cons (first tokens) ops)
-                                   values))))
-
 (defn calc?
   [ops values]
   (and (not (nil? (first ops)))
@@ -76,3 +53,26 @@
   (eval (list (first ops)
               (first values)
               operand)))
+
+(defn parse
+  [infixed]
+  (loop [token infixed
+         ops '()
+         values '()]
+    (do
+      (println " ")
+      (println "token" token)
+      (println "ops" ops)
+      (println "values" values))
+    (cond
+      (empty? token) (first values)
+      (number? (first token)) (if (calc? ops values)
+                                (recur (cons (calc ops (first token) values) (rest token))
+                                       (rest ops)
+                                       (rest values))
+                                (recur (rest token)
+                                       ops
+                                       (cons (first token) values)))
+      (ifn? (first token)) (recur (rest token)
+                                  (cons (first token) ops)
+                                  values))))
