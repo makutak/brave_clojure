@@ -54,6 +54,8 @@
               operand1
               operand2)))
 
+
+;; TODO: 条件洗い出す
 (defn parse
   [infixed]
   (loop [token infixed
