@@ -40,7 +40,7 @@
                     (list operator operand (calc-infix rest-expr))
                     (list operator  (calc-infix rest-expr) operand))))))
 
-(def preorities '(* /))
+(def priorities '(* /))
 (def normals '(+ -))
 
 (defn calc?
@@ -49,30 +49,57 @@
        (not (nil? (first values)))))
 
 (defn calc
-  [ops operand values]
-  (eval (list (first ops)
-              (first values)
-              operand)))
+  [operator operand1 operand2]
+  (eval (list operator
+              operand1
+              operand2)))
 
 (defn parse
   [infixed]
   (loop [token infixed
          ops '()
-         values '()]
+         numbers '()]
     (do
       (println " ")
       (println "token" token)
       (println "ops" ops)
-      (println "values" values))
-    (cond
-      (empty? token) (first values)
-      (number? (first token)) (if (calc? ops values)
-                                (recur (cons (calc ops (first token) values) (rest token))
-                                       (rest ops)
-                                       (rest values))
-                                (recur (rest token)
-                                       ops
-                                       (cons (first token) values)))
-      (ifn? (first token)) (recur (rest token)
-                                  (cons (first token) ops)
-                                  values))))
+      (println "numbers" numbers))
+    (let [op (first token)
+          remains (rest token)]
+      (do (println "op" op)
+          (println "remains" remains))
+      (cond
+        (nil? op) (calc (first ops) (first numbers) (second numbers))
+        (number? op) (recur (rest token)
+                            ops
+                            (cons op numbers))
+        (ifn? op) (cond
+                    ;; 計算可能で、かつ、現演算子がスタックの一番の上の演算子より優先順位が高いければ、
+                    ;; 現演算子で計算する
+                    (empty? ops) (recur remains
+                                        (cons op ops)
+                                        numbers)
+                    (and (calc? ops numbers)
+                         (some #(not (= op %)) priorities))
+                    (recur (rest remains)
+                           ops
+                           (cons (calc op
+                                       (first numbers)
+                                       (first remains))
+                                 (rest numbers)))
+                    ;;計算可能で、現演算子がスタックの一番の上の演算子と同じ優先順位の場合
+                    ;;スタックの値を計算する
+                    (and (calc? ops numbers)
+                         (some #(= op %) normals))
+                    (do
+                      (println "normal")
+                      (recur (cons (calc (first ops)
+                                         (first numbers)
+                                         (second numbers))
+                                   (rest (rest numbers)))
+                             (cons op (rest ops))
+                             (rest (rest numbers))))
+                    ;;計算不可能なときはスタックに積んで次へ行く
+                    :else (recur remains
+                                 (cons op ops)
+                                 numbers))))))
