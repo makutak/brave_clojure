@@ -76,11 +76,11 @@
                             ops
                             (cons op numbers))
         (ifn? op) (cond
-                    ;; 計算可能で、かつ、現演算子がスタックの一番の上の演算子より優先順位が高いければ、
-                    ;; 現演算子で計算する
                     (empty? ops) (recur remains
                                         (cons op ops)
                                         numbers)
+                    ;; 計算可能で、かつ、現演算子がスタックの一番の上の演算子より優先順位が高ければ、
+                    ;; 現演算子で計算する
                     (and (calc? ops numbers)
                          (some #(not (= op %)) priorities))
                     (do
