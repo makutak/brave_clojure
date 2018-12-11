@@ -83,12 +83,14 @@
                                         numbers)
                     (and (calc? ops numbers)
                          (some #(not (= op %)) priorities))
-                    (recur (rest remains)
-                           ops
-                           (cons (calc op
-                                       (first numbers)
-                                       (first remains))
-                                 (rest numbers)))
+                    (do
+                      (println "priority")
+                      (recur (rest remains)
+                             ops
+                             (cons (calc op
+                                         (first numbers)
+                                         (first remains))
+                                   (rest numbers))))
                     ;;計算可能で、現演算子がスタックの一番の上の演算子と同じ優先順位の場合
                     ;;スタックの値を計算する
                     (and (calc? ops numbers)
