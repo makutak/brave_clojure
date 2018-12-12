@@ -79,6 +79,7 @@
       (do (println "token" token)
           (println "remains" remains))
       (cond
+        ;; スタックの値同士を計算するときは古い値から使う
         (nil? token) (calc (first ops)  (second numbers) (first numbers))
         (number? token) (recur (rest tokens)
                                ops
@@ -110,12 +111,13 @@
                        (do
                          (println "normal")
                          (recur remains
+                                ;; スタックの演算子を使って演算を行う
                                 (cons token (rest ops))
                                 (cons (calc (first ops)
                                             (second numbers)
                                             (first numbers))
                                       (rest (rest numbers)))))
-                       ;;計算不可能なときはスタックに積んで次へ行く
+                       ;;計算不可能なときはスタックに追加して次へ
                        :else
                        (do
                          (println "else")
