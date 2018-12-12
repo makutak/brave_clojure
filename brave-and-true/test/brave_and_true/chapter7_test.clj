@@ -75,11 +75,13 @@
     (is (= '("kouno" "star wars")
            (eval (read-string "'(\"kouno\" \"star wars\"))"))))))
 
-(deftest calc-infix-test
+(deftest parse-test
   (testing "calculate infix"
     (is (= 8
-           (int (calc-infix '(1 + 3 * 4 - 5)))))
+           (int (parse '(1 + 3 * 4 - 5)))))
     (is (= 85
-           (int (calc-infix '(38 + 48 - 2 / 2)))))
+           (int (parse '(38 + 48 - 2 / 2)))))
     (is (= -29
-           (int (calc-infix '(1 * 3 - 8 * 4)))))))
+           (int (parse '(1 * 3 - 8 * 4)))))
+    (is (= 15
+           (int (parse '(1 - 2 * 3 + 4 * 5 )))))))
