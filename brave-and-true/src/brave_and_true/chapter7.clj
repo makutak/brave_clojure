@@ -58,52 +58,52 @@
 ;; TODO: 条件洗い出す
 (defn parse
   [infixed]
-  (loop [token infixed
+  (loop [tokens infixed
          ops '()
          numbers '()]
     (do
       (println " ")
-      (println "token" token)
+      (println "tokens" tokens)
       (println "ops" ops)
       (println "numbers" numbers))
-    (let [op (first token)
-          remains (rest token)]
-      (do (println "op" op)
+    (let [token (first tokens)
+          remains (rest tokens)]
+      (do (println "token" token)
           (println "remains" remains))
       (cond
-        (nil? op) (calc (first ops) (first numbers) (second numbers))
-        (number? op) (recur (rest token)
-                            ops
-                            (cons op numbers))
-        (ifn? op) (cond
-                    (empty? ops) (recur remains
-                                        (cons op ops)
-                                        numbers)
+        (nil? token) (calc (first ops) (first numbers) (second numbers))
+        (number? token) (recur (rest tokens)
+                               ops
+                               (cons token numbers))
+        (ifn? token) (cond
+                       (empty? ops) (recur remains
+                                           (cons token ops)
+                                           numbers)
                     ;; 計算可能で、かつ、現演算子がスタックの一番の上の演算子より優先順位が高ければ、
                     ;; 現演算子で計算する
-                    (and (calc? ops numbers)
-                         (some #(not (= op %)) priorities))
-                    (do
-                      (println "priority")
-                      (recur (rest remains)
-                             ops
-                             (cons (calc op
-                                         (first numbers)
-                                         (first remains))
-                                   (rest numbers))))
+                       (and (calc? ops numbers)
+                            (some #(not (= token %)) priorities))
+                       (do
+                         (println "priority")
+                         (recur (rest remains)
+                                ops
+                                (cons (calc token
+                                            (first numbers)
+                                            (first remains))
+                                      (rest numbers))))
                     ;;計算可能で、現演算子がスタックの一番の上の演算子と同じ優先順位の場合
                     ;;スタックの値を計算する
-                    (and (calc? ops numbers)
-                         (some #(= op %) normals))
-                    (do
-                      (println "normal")
-                      (recur (cons (calc (first ops)
-                                         (first numbers)
-                                         (second numbers))
-                                   (rest (rest numbers)))
-                             (cons op (rest ops))
-                             (rest (rest numbers))))
+                       (and (calc? ops numbers)
+                            (some #(= token %) normals))
+                       (do
+                         (println "normal")
+                         (recur (cons (calc (first ops)
+                                            (first numbers)
+                                            (second numbers))
+                                      (rest (rest numbers)))
+                                (cons token (rest ops))
+                                (rest (rest numbers))))
                     ;;計算不可能なときはスタックに積んで次へ行く
-                    :else (recur remains
-                                 (cons op ops)
-                                 numbers))))))
+                       :else (recur remains
+                                    (cons token ops)
+                                    numbers))))))
