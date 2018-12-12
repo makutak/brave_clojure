@@ -40,8 +40,13 @@
                     (list operator operand (calc-infix rest-expr))
                     (list operator  (calc-infix rest-expr) operand))))))
 
-(def priorities '(* /))
-(def normals '(+ -))
+(def operators-order [{:operator '+ :order 1}
+                      {:operator '- :order 1}
+                      {:operator '* :order 2}
+                      {:operator '/ :order 2}])
+
+(def priorities (map :operator (filter #(= (:order %) 2) operators-order)))
+(def normals (map :operator (filter #(= (:order %) 1) operators-order)))
 
 (defn calc?
   [ops values]
@@ -55,7 +60,10 @@
               operand2)))
 
 
-;; TODO: 条件洗い出す
+(defn calc-order
+  [operator]
+  (:order (first (filter #(= (:operator %) operator) operators-order))))
+
 (defn parse
   [infixed]
   (loop [tokens infixed
@@ -71,7 +79,7 @@
       (do (println "token" token)
           (println "remains" remains))
       (cond
-        (nil? token) (calc (first ops) (first numbers) (second numbers))
+        (nil? token) (calc (first ops)  (second numbers) (first numbers))
         (number? token) (recur (rest tokens)
                                ops
                                (cons token numbers))
@@ -79,10 +87,13 @@
                        (empty? ops) (recur remains
                                            (cons token ops)
                                            numbers)
-                    ;; 計算可能で、かつ、現演算子がスタックの一番の上の演算子より優先順位が高ければ、
-                    ;; 現演算子で計算する
+                       ;; 計算可能で、かつ、現演算子がスタックの一番の上の演算子より優先順位が高ければ、
+                       ;; 現演算子で計算する
                        (and (calc? ops numbers)
-                            (some #(not (= token %)) priorities))
+                            (some #(= token %) priorities)
+                            (> (calc-order token)
+                               (calc-order (first ops))))
+
                        (do
                          (println "priority")
                          (recur (rest remains)
@@ -91,19 +102,23 @@
                                             (first numbers)
                                             (first remains))
                                       (rest numbers))))
-                    ;;計算可能で、現演算子がスタックの一番の上の演算子と同じ優先順位の場合
-                    ;;スタックの値を計算する
+                       ;;計算可能で、現演算子がスタックの一番の上の演算子と同じ優先順位の場合
+                       ;;スタックの値を計算する
                        (and (calc? ops numbers)
-                            (some #(= token %) normals))
+                            (= (calc-order token)
+                               (calc-order (first ops))))
                        (do
                          (println "normal")
-                         (recur (cons (calc (first ops)
-                                            (first numbers)
-                                            (second numbers))
-                                      (rest (rest numbers)))
+                         (recur remains
                                 (cons token (rest ops))
-                                (rest (rest numbers))))
-                    ;;計算不可能なときはスタックに積んで次へ行く
-                       :else (recur remains
-                                    (cons token ops)
-                                    numbers))))))
+                                (cons (calc (first ops)
+                                            (second numbers)
+                                            (first numbers))
+                                      (rest (rest numbers)))))
+                       ;;計算不可能なときはスタックに積んで次へ行く
+                       :else
+                       (do
+                         (println "else")
+                         (recur remains
+                                (cons token ops)
+                                numbers)))))))
