@@ -11,4 +11,7 @@
     (is (= '(let* [result "my-print!"]
               (println result)
               result)
-           (macroexpand '(my-print "my-print!"))))))
+           (macroexpand '(my-print "my-print!")))))
+  (testing "calc"
+    (is (= 2
+           (my-print (+ 1 1))))))
