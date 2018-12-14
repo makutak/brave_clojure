@@ -15,3 +15,15 @@
   (testing "calc"
     (is (= 2
            (my-print (+ 1 1))))))
+
+(deftest when-test
+  (testing "when is macro"
+    (is (= '(if true
+              (do
+                (println 1)
+                (println 2)
+                (+ 1 2)))
+           (macroexpand '(when true
+                           (println 1)
+                           (println 2)
+                           (+ 1 2)))))))
