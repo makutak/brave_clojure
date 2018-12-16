@@ -37,4 +37,11 @@
     (is (= "fuga"
            (unless (= 1 1)
                    (str "hoge")
-                   (str "fuga"))))))
+                   (str "fuga")))))
+  (testing "expanded is if special form"
+    (is (= '(if true
+              false
+              true)
+           (macroexpand '(unless true
+                                  true
+                                  false))))))
