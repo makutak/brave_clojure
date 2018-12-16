@@ -6,3 +6,7 @@
   (list 'let ['result expression]
         (list 'println 'result)
         'result))
+
+(defmacro unless
+  [test & body]
+  (conj (reverse body) test 'if))

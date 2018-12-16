@@ -27,3 +27,10 @@
                            (println 1)
                            (println 2)
                            (+ 1 2)))))))
+
+(deftest unless-test
+  (testing "unless"
+    (is (= false
+           (unless true
+                   true
+                   false)))))
