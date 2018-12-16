@@ -33,4 +33,8 @@
     (is (= false
            (unless true
                    true
-                   false)))))
+                   false)))
+    (is (= "fuga"
+           (unless (= 1 1)
+                   (str "hoge")
+                   (str "fuga"))))))
