@@ -52,3 +52,9 @@
            `+))
     (is (= '(clojure.core/+ 1 1)
            `(+ 1 1)))))
+
+(deftest unquote-test
+  ;; ruby の "string #{foo}" みたいな感じに使えるらしい
+  (testing "inside syntax quote, using tilde return evaluated value"
+    (is (= '(clojure.core/+ 1 2)
+           `(+ 1 ~(inc 1))))))
