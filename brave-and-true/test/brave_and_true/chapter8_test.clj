@@ -45,3 +45,10 @@
            (macroexpand '(unless true
                                   true
                                   false))))))
+
+(deftest syntax-quote-test
+  (testing "syntax quote return fully qualified symbols"
+    (is (= 'clojure.core/+
+           `+))
+    (is (= '(clojure.core/+ 1 1)
+           `(+ 1 1)))))
