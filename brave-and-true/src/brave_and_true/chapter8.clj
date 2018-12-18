@@ -14,10 +14,7 @@
 (defmacro code-critic
   "Phrase are courtesy Hermes Conrad from Futurama"
   [bad good]
-  (list 'do
-        (list 'println
-              "Great squid of Madrid, this is bad code:"
-              (list  'quote bad))
-        (list 'println
-              "Sweet gorilla of Manila, this is good code:"
-              (list 'quote good))))
+  `(do (println "Great squid of Madrid, this is bad code:"
+                (quote ~bad))
+       (println "Sweet gorilla of Manila, this is good code:"
+                (quote ~good))))
