@@ -10,3 +10,14 @@
 (defmacro unless
   [test & body]
   (conj (reverse body) test 'if))
+
+(defmacro code-critic
+  "Phrase are courtesy Hermes Conrad from Futurama"
+  [bad good]
+  (list 'do
+        (list 'println
+              "Great squid of Madrid, this is bad code:"
+              (list  'quote bad))
+        (list 'println
+              "Sweet gorilla of Manila, this is good code:"
+              (list 'quote good))))
