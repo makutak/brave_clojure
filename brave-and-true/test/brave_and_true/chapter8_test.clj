@@ -58,3 +58,9 @@
   (testing "inside syntax quote, using tilde return evaluated value"
     (is (= '(clojure.core/+ 1 2)
            `(+ 1 ~(inc 1))))))
+
+(deftest code-critic-test
+  (testing "println bad and good"
+    (is (= (str "Great squid of Madrid, this is bad code: (1 + 1)\n"
+                "Sweet gorilla of Manila, this is good code: (+ 1 1)\n")
+           (with-out-str (code-critic (1 + 1) (+ 1 1)))))))
