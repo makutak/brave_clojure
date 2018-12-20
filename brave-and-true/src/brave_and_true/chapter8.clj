@@ -18,6 +18,6 @@
 (defmacro code-critic
   "Phrase are courtesy Hermes Conrad from Futurama"
   [bad good]
-  `(do ~(map #(apply critisize-code %)
+  `(do ~@(map #(apply critisize-code %)
              [["Great squid of Madrid, this is bad code:" bad]
               ["Sweet gorilla of Manila, this is good code:" good]])))
