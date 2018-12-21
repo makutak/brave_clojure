@@ -47,7 +47,7 @@
                                   false))))))
 
 (deftest syntax-quote-test
-  (testing "syntax quote return fully qualified symbols"
+  (testing "syntax quote returns fully qualified symbols"
     (is (= 'clojure.core/+
            `+))
     (is (= '(clojure.core/+ 1 1)
