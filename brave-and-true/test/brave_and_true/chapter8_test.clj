@@ -64,3 +64,10 @@
     (is (= (str "Great squid of Madrid, this is bad code: (1 + 1)\n"
                 "Sweet gorilla of Manila, this is good code: (+ 1 1)\n")
            (with-out-str (code-critic (1 + 1) (+ 1 1)))))))
+
+(deftest with-mischief-test
+  (testing "let's bindings message is Good Job!"
+    (is (= (str "Here's how I feel about that thing you did: " message "\n")
+           (with-out-str
+             (with-mischief
+               (println "Here's how I feel about that thing you did: " message )))))))
