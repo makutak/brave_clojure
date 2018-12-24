@@ -27,4 +27,5 @@
 (defmacro with-mischief
   [& stuff-to-do]
   `(let [message "Oh, big deal!"]
-     ~@stuff-to-do))
+     ~@stuff-to-do
+     (println "I still need to say: " message)))

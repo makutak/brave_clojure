@@ -67,7 +67,8 @@
 
 (deftest with-mischief-test
   (testing "let's bindings message is Good Job!"
-    (is (= (str "Here's how I feel about that thing you did: " message "\n")
+    (is (= (str "Here's how I feel about that thing you did: " message "\n"
+                "I still need to say: Oh, big deal!\n" )
            (with-out-str
              (with-mischief
                (println "Here's how I feel about that thing you did: " message )))))))
