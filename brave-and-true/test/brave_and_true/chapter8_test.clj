@@ -72,3 +72,11 @@
            (with-out-str
              (with-mischief
                (println "Here's how I feel about that thing you did:" message )))))))
+
+(deftest macro-with-doseq-test
+    (testing "macro receive evaluated value"
+    (is (= (str "(= 1 1) was successful: true" "\n"
+                "(= 1 2) was successful: false" "\n")
+           (with-out-str
+             (doseq [code ['(= 1 1) '(= 1 2)]]
+               (brave-and-true.chapter8/report code)))))))
