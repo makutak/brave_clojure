@@ -29,3 +29,9 @@
   `(let [message# "Oh, big deal!"]
     ~@stuff-to-do
     (println "I still need to say:" message#)))
+
+(defmacro report
+  [to-try]
+  `(if ~to-try
+     (println (quote ~to-try) "was successful:" ~to-try)
+     (println (quote ~to-try) "was not successful:" ~to-try)))
