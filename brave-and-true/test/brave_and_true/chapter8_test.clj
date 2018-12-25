@@ -76,7 +76,6 @@
 (deftest macro-with-doseq-test
     (testing "macro receive evaluated value"
     (is (= (str "(= 1 1) was successful: true" "\n"
-                "(= 1 2) was successful: false" "\n")
+                "(= 1 2) was not successful: false" "\n")
            (with-out-str
-             (doseq [code ['(= 1 1) '(= 1 2)]]
-               (brave-and-true.chapter8/report code)))))))
+             (doseq-macro report (= 1 1) (= 1 2)))))))

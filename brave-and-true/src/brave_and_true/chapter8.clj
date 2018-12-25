@@ -36,3 +36,8 @@
     (if result#
        (println (quote ~to-try) "was successful:" result#)
        (println (quote ~to-try) "was not successful:" result#))))
+
+(defmacro doseq-macro
+  [macroname & args]
+  `(do
+     ~@(map (fn [arg] (list macroname arg)) args)))
