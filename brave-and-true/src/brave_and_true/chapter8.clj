@@ -32,6 +32,7 @@
 
 (defmacro report
   [to-try]
-  `(if ~to-try
-     (println (quote ~to-try) "was successful:" ~to-try)
-     (println (quote ~to-try) "was not successful:" ~to-try)))
+  `(let [result# ~to-try]
+    (if result#
+       (println (quote ~to-try) "was successful:" result#)
+       (println (quote ~to-try) "was not successful:" result#))))
