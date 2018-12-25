@@ -26,6 +26,7 @@
 
 (defmacro with-mischief
   [& stuff-to-do]
-  `(let [message "Oh, big deal!"]
-     ~@stuff-to-do
-     (println "I still need to say: " message)))
+  (let [macro-message (gensym 'message)]
+    `(let [~macro-message "Oh, big deal!"]
+       ~@stuff-to-do
+       (println "I still need to say:" ~macro-message))))
