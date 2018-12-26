@@ -79,3 +79,11 @@
                 "(= 1 2) was not successful: false" "\n")
            (with-out-str
              (doseq-macro report (= 1 1) (= 1 2)))))))
+
+(deftest error-messages-for-test
+  (testing "if invalid, return seq of error messages"
+    (is (= '("empty")
+           (error-messages-for "" ["empty" not-empty]))))
+  (testing "if valid, return empty seq"
+    (is (= '()
+           (error-messages-for "not-empty" ["empty" not-empty])))))
