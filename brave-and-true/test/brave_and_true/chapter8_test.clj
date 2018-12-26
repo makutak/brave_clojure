@@ -87,3 +87,8 @@
   (testing "if valid, return empty seq"
     (is (= '()
            (error-messages-for "not-empty" ["empty" not-empty])))))
+
+(deftest validate-test
+  (testing "validate order"
+    (is (= {:email ["Your email address doesn't look like an email address."]}
+           (validate order-details order-details-validations)))))
