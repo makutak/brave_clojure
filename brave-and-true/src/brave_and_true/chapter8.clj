@@ -41,3 +41,7 @@
   [macroname & args]
   `(do
      ~@(map (fn [arg] (list macroname arg)) args)))
+
+(def order-details
+  {:name "Mitchard Blimmons"
+   :email "mitchard.blimmonsgmail.com"})
