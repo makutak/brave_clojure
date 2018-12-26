@@ -50,7 +50,7 @@
   {:name
    ["Please enter a name" not-empty]
    :email
-   ["Please enter as email address" not-empty
+   ["Please enter an email address" not-empty
     "Your email address dosen't look like an email address"
     #(or (empty %) (re-seq #"@" %))]})
 
