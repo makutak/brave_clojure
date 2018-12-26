@@ -91,4 +91,12 @@
 (deftest validate-test
   (testing "validate order"
     (is (= {:email ["Your email address doesn't look like an email address."]}
-           (validate order-details order-details-validations)))))
+           (validate order-details order-details-validations)))
+    (is (= {:name ["Please enter a name."]}
+           (validate {:name "" :email "example@example.com"} order-details-validations)))
+    (is (= {:name ["Please enter a name."]
+            :email ["Please enter an email address."
+                    "Your email address doesn't look like an email address."]}
+           (validate {:name "" :email ""} order-details-validations)))
+    (is (= {}
+           (validate {:name "foo" :email "example@example.com"} order-details-validations)))))
