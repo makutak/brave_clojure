@@ -94,3 +94,14 @@
       (if or#
         or#
         (my-or ~@next)))))
+
+(def character
+  {:name "Smooches McCutes"
+   :attributes {:intelligence 10
+                :strength 4
+                :dexterity 5}})
+
+(defmacro defattrs
+  [& attrs]
+  `(do
+     (println (quote ~attrs))))
