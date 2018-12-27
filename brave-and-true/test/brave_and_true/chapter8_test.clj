@@ -100,3 +100,16 @@
            (validate {:name "" :email ""} order-details-validations)))
     (is (= {}
            (validate {:name "foo" :email "example@example.com"} order-details-validations)))))
+
+(deftest if-valid-test
+  (testing "if valid, return :success"
+    (is (= {:status "success" :details ""}
+           (if-valid  {:name "foo" :email "example@example.com"} order-details-validations my-errors
+                      {:status "success" :details ""}
+                      {:status "failure" :details my-errors}))))
+  (testing "if invalid, return :failure and error-messages"
+    (is (= {:status "failure"
+            :details {:email ["Your email address doesn't look like an email address."]}}
+           (if-valid order-details order-details-validations my-errors
+                     {:status "success" :details ""}
+                     {:status "failure" :details my-errors})))))
