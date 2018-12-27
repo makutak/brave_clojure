@@ -85,3 +85,12 @@
   `(let [errors-name# (validate ~to-validate ~validations)]
      (when (empty? errors-name#)
        ~@then)))
+
+(defmacro my-or
+  ([] nil)
+  ([x] x)
+  ([x & next]
+   `(let [or# ~x]
+      (if or#
+        or#
+        (my-or ~@next)))))

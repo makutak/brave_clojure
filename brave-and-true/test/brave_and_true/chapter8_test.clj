@@ -125,3 +125,10 @@
            (when-valid order-details order-details-validations
                        (println "success")
                        {:status "success"})))))
+
+(deftest my-or-test
+  (testing "or"
+    (is (= true
+           (my-or (= 1 2) (= 1 1))))
+    (is (= false
+           (my-or (= 1 2) (= 1 2))))))
