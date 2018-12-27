@@ -113,3 +113,15 @@
            (if-valid order-details order-details-validations my-errors
                      {:status "success" :details ""}
                      {:status "failure" :details my-errors})))))
+
+(deftest when-valid-test
+  (testing "if valid, exectute like when"
+    (is (= {:status "success"}
+           (when-valid {:name "foo" :email "example@example.com"} order-details-validations
+                       (println "success")
+                       {:status "success"}))))
+  (testing "if invalid, return null"
+    (is (= nil
+           (when-valid order-details order-details-validations
+                       (println "success")
+                       {:status "success"})))))
