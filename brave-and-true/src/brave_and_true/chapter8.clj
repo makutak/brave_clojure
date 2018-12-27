@@ -102,6 +102,9 @@
                 :dexterity 5}})
 
 (defmacro defattrs
-  [& attrs]
-  `(do
-     (println (quote ~attrs))))
+  [& attributes]
+  (let [attrs# (partition 2 attributes)]
+    `(do
+       ~@(map (fn [[fun-name attr-name]]
+                (list 'def fun-name (comp attr-name :attributes)))
+              attrs#))))

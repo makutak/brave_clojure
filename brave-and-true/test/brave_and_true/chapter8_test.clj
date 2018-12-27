@@ -132,3 +132,14 @@
            (my-or (= 1 2) (= 1 1))))
     (is (= false
            (my-or (= 1 2) (= 1 2))))))
+
+(defattrs test-c-int :intelligence test-c-str :strength test-c-dex :dexterity)
+
+(deftest defattrs-test
+  (testing "define an arbitrary number of attribute-retrieving functions"
+    (is (= 10
+           (test-c-int character)))
+    (is (= 4
+           (test-c-str character)))
+    (is (= 5
+           (test-c-dex character)))))
