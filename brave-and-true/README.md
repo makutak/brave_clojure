@@ -1,4 +1,5 @@
 # brave-and-true
+[![CircleCI](https://circleci.com/gh/makutak/brave_clojure.svg?style=svg)](https://circleci.com/gh/makutak/brave_clojure)
 
 FIXME: description
 
