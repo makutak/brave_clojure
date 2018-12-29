@@ -31,7 +31,10 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: lein deps
+      - run:
+          name: lein deps
+          command: lein deps
+          working_directory: brave-and-true/
 
       - save_cache:
           paths:
@@ -39,4 +42,7 @@ jobs:
           key: v1-dependencies-{{ checksum "project.clj" }}
 
       # run tests!
-      - run: lein test
+      - run:
+          name: lein test
+          command: lein test
+          working_directory: brave-and-true/
