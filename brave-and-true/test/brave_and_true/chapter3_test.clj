@@ -1,7 +1,8 @@
 (ns brave-and-true.chapter3-test
   (:require [clojure.test :refer :all]
             [brave-and-true.core :refer :all]
-            [brave-and-true.chapter3 :refer :all]))
+            [brave-and-true.chapter3 :refer :all])
+  (:refer-clojure :exclude [name]))
 
 (deftest form
   (testing "form"
@@ -490,10 +491,10 @@ Your second choise is: fuga"
             {:name "3-eye", :size 1}
             {:name "4-eye", :size 1}
             {:name "5-eye", :size 1}]
-           (build-alian-part {:name "1-eye" :size 1}))))
+           (build-alien-part {:name "1-eye" :size 1}))))
   (testing "build normal body part"
     (is (= [{:name "head" :size 10}]
-           (build-alian-part {:name "head" :size 10})))))
+           (build-alien-part {:name "head" :size 10})))))
 
 (def asym-alian-body-parts [{:name	"head" :size 3}
                              {:name	"1-eye" :size 1}
