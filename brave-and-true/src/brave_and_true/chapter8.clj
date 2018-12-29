@@ -103,8 +103,8 @@
 
 (defmacro defattrs
   [& attributes]
-  (let [attrs# (partition 2 attributes)]
+  (let [pairs# (partition 2 attributes)]
     `(do
        ~@(map (fn [[fun-name attr-name]]
                 (list 'def fun-name (comp attr-name :attributes)))
-              attrs#))))
+              pairs#))))
