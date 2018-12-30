@@ -41,7 +41,7 @@
     (is (= 10
            (ignore-last-operand (+ 3 7 (println "hello world")))))))
 
-(deftest macroexpand-test
+(deftest ^:not-lein macroexpand-test
   (testing "using macroexpand"
     (is (= '(+ 1 1)
            (macroexpand '(ignore-last-operand (+ 1 1 1)))))
@@ -59,7 +59,7 @@
     (is (= 5
            (infix (25 / 5))))))
 
-(deftest arrow-macro-test
+(deftest ^:not-lein arrow-macro-test
   (testing "function is same"
     (is (= '(read-string (slurp (clojure.java.io/resource path)))
            (macroexpand
