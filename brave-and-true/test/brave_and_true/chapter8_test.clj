@@ -38,13 +38,13 @@
            (unless (= 1 1)
                    (str "hoge")
                    (str "fuga")))))
-  (testing "expanded is if special form"
+  (testing "expanded unless is if special form"
     (is (= '(if true
               false
               true)
            (macroexpand '(unless true
-                                  true
-                                  false))))))
+                                 true
+                                 false))))))
 
 (deftest syntax-quote-test
   (testing "syntax quote returns fully qualified symbols"
