@@ -3,7 +3,7 @@
             [brave-and-true.core :refer :all]
             [brave-and-true.chapter8 :refer :all]))
 
-(deftest my-print-test
+(deftest ^:not-lein my-print-test
   (testing "my-print is resutn args"
     (is (= "hoge"
            (my-print "hoge"))))
@@ -23,12 +23,12 @@
                 (println 1)
                 (println 2)
                 (+ 1 2)))
-           (macroexpand '(when true
-                           (println 1)
-                           (println 2)
-                           (+ 1 2)))))))
+           (macroexpand-1 '(when true
+                             (println 1)
+                             (println 2)
+                             (+ 1 2)))))))
 
-(deftest unless-test
+(deftest ^:not-lein unless-test
   (testing "unless"
     (is (= false
            (unless true
@@ -42,9 +42,9 @@
     (is (= '(if true
               false
               true)
-           (macroexpand '(unless true
-                                 true
-                                 false))))))
+           (macroexpand-1 '(unless true
+                                   true
+                                   false))))))
 
 (deftest syntax-quote-test
   (testing "syntax quote returns fully qualified symbols"
